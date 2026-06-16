@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPE Hours Calculator — Are You Renewal-Ready? | CPETrack</title>
+  <meta name="description" content="Free CPA CPE calculator. Enter your hours by category, see your compliance gap, and find out if you'll make the June 30 deadline. No account needed." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cpe.paprika-labs.app/calculator.html" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fafaf9;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #777;
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+    .back-link:hover { color: #e65100; }
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 1.25rem;
+    }
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.8rem;
+    }
+    .field-row {
+      margin-bottom: 1.1rem;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.4rem;
+    }
+    label .hint {
+      font-weight: 400;
+      color: #888;
+      font-size: 0.8rem;
+    }
+    select, input[type="number"] {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1.5px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      background: #fafaf9;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+    select:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: #e65100;
+      background: #fff;
+    }
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+    @media (max-width: 480px) {
+      .hours-grid { grid-template-columns: 1fr; }
+    }
+    .calc-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: #e65100;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 0.5rem;
+    }
+    .calc-btn:hover { background: #bf360c; }
+
+    /* Results */
+    #results { display: none; }
+    .status-banner {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .status-banner.pass {
+      background: #e8f5e9;
+      border: 1.5px solid #a5d6a7;
+    }
+    .status-banner.warn {
+      background: #fff3e0;
+      border: 1.5px solid #ffcc80;
+    }
+    .status-banner.fail {
+      background: #fce4ec;
+      border: 1.5px solid #f48fb1;
+    }
+    .status-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .status-text h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .status-banner.pass .status-text h3 { color: #1b5e20; }
+    .status-banner.warn .status-text h3 { color: #e65100; }
+    .status-banner.fail .status-text h3 { color: #880e4f; }
+    .status-text p { font-size: 0.9rem; color: #555; line-height: 1.5; }
+
+    .req-table { width: 100%; border-collapse: collapse; }
+    .req-table th {
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #888;
+      padding: 0 0 0.6rem;
+      border-bottom: 1.5px solid #eee;
+    }
+    .req-table th:not(:first-child) { text-align: right; }
+    .req-table td {
+      padding: 0.65rem 0;
+      font-size: 0.9rem;
+      color: #333;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: middle;
+    }
+    .req-table td:not(:first-child) { text-align: right; }
+    .req-table tr:last-child td { border-bottom: none; }
+    .pill {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .pill.ok { background: #e8f5e9; color: #1b5e20; }
+    .pill.gap { background: #fce4ec; color: #880e4f; }
+    .pill.warn { background: #fff3e0; color: #e65100; }
+
+    .cta-box {
+      background: linear-gradient(135deg, #fff3e0 0%, #fff8f5 100%);
+      border: 1.5px solid #ffcc80;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .cta-box h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 0.5rem;
+    }
+    .cta-box p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+    .cta-link {
+      display: inline-block;
+      background: #e65100;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: background 0.15s;
+    }
+    .cta-link:hover { background: #bf360c; }
+    .cta-sub { font-size: 0.8rem; color: #aaa; margin-top: 0.6rem; }
+    .disclaimer {
+      font-size: 0.78rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 1.5rem;
+      line-height: 1.5;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #bbb;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="/">← CPETrack</a>
+  <h1>CPA CPE Compliance Calculator</h1>
+  <p class="subtitle">Enter your CPE hours and see exactly where you stand before the June 30 renewal deadline. Takes 30 seconds, no account needed.</p>
+
+  <!-- Input Card -->
+  <div class="card">
+    <h2>Your License Details</h2>
+    <div class="field-row">
+      <label for="state">License State <span class="hint">— requirements vary by state</span></label>
+      <select id="state">
+        <option value="">Select your state...</option>
+        <option value="FL">Florida (FL) — June 30 deadline</option>
+        <option value="MA">Massachusetts (MA) — June 30 deadline</option>
+        <option value="MI">Michigan (MI) — June 30 deadline</option>
+        <option value="MN">Minnesota (MN) — June 30 deadline</option>
+        <option value="CT">Connecticut (CT) — June 30 deadline</option>
+        <option value="OR">Oregon (OR) — June 30 deadline</option>
+        <option value="PA">Pennsylvania (PA) — June 30 deadline</option>
+        <option value="WI">Wisconsin (WI) — June 30 deadline</option>
+        <option value="OTHER">Other state (use NASBA defaults)</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <label for="cycle">Renewal Cycle</label>
+      <select id="cycle">
+        <option value="1">Annual (1 year)</option>
+        <option value="2" selected>Biennial (2 years)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>CPE Hours Completed</h2>
+    <div class="hours-grid">
+      <div class="field-row">
+        <label for="ethics_hours">Ethics Hours</label>
+        <input type="number" id="ethics_hours" min="0" max="80" step="0.5" placeholder="0" />
+      </div>
+      <div class="field-row">
+        <label for="aa_hours">Accounting &amp; Auditing Hours</label>
+        <input type="number" id="aa_hours" min="0" max="80" step="0.5" placeholder="0" />
+      </div>
+      <div class="field-row">
+        <label for="tech_hours">Technology / Other Technical</label>
+        <input type="number" id="tech_hours" min="0" max="80" step="0.5" placeholder="0" />
+      </div>
+      <div class="field-row">
+        <label for="other_hours">Other CPE Hours</label>
+        <input type="number" id="other_hours" min="0" max="80" step="0.5" placeholder="0" />
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Check My Compliance →</button>
+  </div>
+
+  <!-- Results -->
+  <div id="results">
+    <div id="status-banner" class="status-banner">
+      <div class="status-icon" id="status-icon"></div>
+      <div class="status-text">
+        <h3 id="status-title"></h3>
+        <p id="status-desc"></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Requirement Breakdown</h2>
+      <table class="req-table">
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>Have</th>
+            <th>Need</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="req-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="cta-box">
+      <h3>Track your CPE automatically next cycle</h3>
+      <p>CPETrack auto-maps your certificates to NASBA categories, flags gaps as you go, and exports a renewal-ready summary — so you're never in this position again.</p>
+      <a class="cta-link" href="https://cpe.paprika-labs.app/" id="cta-email">Get early access →</a>
+      <p class="cta-sub">Free during early access &bull; No commitment</p>
+    </div>
+  </div>
+
+  <p class="disclaimer">Requirements shown are simplified summaries based on state board rules as of June 2026. Always verify your specific requirements with your state CPA board before filing for renewal.</p>
+
+  <p class="footer">Built by <a href="https://paprika-labs.app" style="color:#bbb">Paprika Labs</a></p>
+</div>
+
+<script>
+// State-specific CPE requirements (simplified — biennial cycle)
+const STATE_REQS = {
+  FL: { total: 80, ethics: 4, aa: 8,  technical_pct: 0,  notes: "FL: 80 hrs/2yrs, 4 ethics, 8 A&A" },
+  MA: { total: 80, ethics: 4, aa: 0,  technical_pct: 0,  notes: "MA: 80 hrs/2yrs, 4 ethics" },
+  MI: { total: 80, ethics: 4, aa: 8,  technical_pct: 0,  notes: "MI: 80 hrs/2yrs, 4 ethics, 8 A&A" },
+  MN: { total: 80, ethics: 4, aa: 0,  technical_pct: 0,  notes: "MN: 80 hrs/2yrs, 4 ethics" },
+  CT: { total: 80, ethics: 4, aa: 0,  technical_pct: 0,  notes: "CT: 80 hrs/2yrs, 4 ethics" },
+  OR: { total: 80, ethics: 4, aa: 8,  technical_pct: 0,  notes: "OR: 80 hrs/2yrs, 4 ethics, 8 A&A" },
+  PA: { total: 80, ethics: 4, aa: 24, technical_pct: 0,  notes: "PA: 80 hrs/2yrs, 4 ethics, 24 A&A" },
+  WI: { total: 80, ethics: 3, aa: 0,  technical_pct: 0,  notes: "WI: 80 hrs/2yrs, 3 ethics" },
+  OTHER: { total: 80, ethics: 4, aa: 0, technical_pct: 0, notes: "NASBA model: 80 hrs/2yrs, 4 ethics" },
+};
+
+function n(id) {
+  return parseFloat(document.getElementById(id).value) || 0;
+}
+
+function calculate() {
+  const state = document.getElementById('state').value;
+  const cycle = parseInt(document.getElementById('cycle').value);
+  if (!state) { alert('Please select your license state.'); return; }
+
+  const reqs = STATE_REQS[state] || STATE_REQS['OTHER'];
+  const cycleMult = cycle === 1 ? 0.5 : 1;
+  const ethicsReq  = reqs.ethics  * cycleMult;
+  const aaReq      = reqs.aa      * cycleMult;
+  const totalReq   = reqs.total   * cycleMult;
+
+  const ethics  = n('ethics_hours');
+  const aa      = n('aa_hours');
+  const tech    = n('tech_hours');
+  const other   = n('other_hours');
+  const total   = ethics + aa + tech + other;
+
+  // Gap analysis
+  const ethicsGap = Math.max(0, ethicsReq - ethics);
+  const aaGap     = Math.max(0, aaReq - aa);
+  const totalGap  = Math.max(0, totalReq - total);
+
+  // Determine overall status
+  const banner = document.getElementById('status-banner');
+  const icon   = document.getElementById('status-icon');
+  const title  = document.getElementById('status-title');
+  const desc   = document.getElementById('status-desc');
+
+  const gaps = [ethicsGap > 0, aaReq > 0 && aaGap > 0, totalGap > 0].filter(Boolean).length;
+  const daysLeft = Math.ceil((new Date('2026-06-30') - new Date()) / 86400000);
+
+  banner.className = 'status-banner';
+  if (gaps === 0) {
+    banner.classList.add('pass');
+    icon.textContent = '✅';
+    title.textContent = 'You look compliant!';
+    desc.textContent = `Based on the information entered, you meet the requirements for ${state}. Export a clean summary for your records before June 30.`;
+  } else if (daysLeft > 14) {
+    banner.classList.add('warn');
+    icon.textContent = '⚠️';
+    title.textContent = `You have ${totalGap > 0 ? totalGap : ethicsGap + aaGap} hours to complete`;
+    desc.textContent = `${daysLeft} days until the June 30 deadline. You have time — but don't wait. See the gaps below.`;
+  } else {
+    banner.classList.add('fail');
+    icon.textContent = '🚨';
+    title.textContent = `${totalGap > 0 ? totalGap : ethicsGap + aaGap} hours short with ${daysLeft} days left`;
+    desc.textContent = `June 30 is close. Prioritise the gaps below — ethics and A&A courses are widely available online and can be completed quickly.`;
+  }
+
+  // Build table rows
+  const rows = [
+    { label: 'Total CPE Hours', have: total, need: totalReq, gap: totalGap },
+    { label: 'Ethics Hours', have: ethics, need: ethicsReq, gap: ethicsGap },
+  ];
+  if (aaReq > 0) {
+    rows.push({ label: 'Accounting & Auditing', have: aa, need: aaReq, gap: aaGap });
+  }
+
+  const tbody = document.getElementById('req-rows');
+  tbody.innerHTML = rows.map(r => {
+    let pillClass = r.gap === 0 ? 'ok' : (r.have > 0 ? 'warn' : 'gap');
+    let pillText  = r.gap === 0 ? 'Met ✓' : `${r.gap} short`;
+    return `<tr>
+      <td>${r.label}</td>
+      <td>${r.have}</td>
+      <td>${r.need}</td>
+      <td><span class="pill ${pillClass}">${pillText}</span></td>
+    </tr>`;
+  }).join('');
+
+  // Update CTA email subject
+  const subject = encodeURIComponent('CPETrack early access');
+  const body = encodeURIComponent(`I used the CPE calculator and I'm interested in CPETrack early access.\n\nState: ${state}\nTotal hours: ${total}/${totalReq} needed\nGap: ${totalGap} hours`);
+  document.getElementById('cta-email').href = `mailto:paprika-lab@agentmail.to?subject=${subject}&body=${body}`;
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
