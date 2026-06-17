@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CPETrack — Always Renewal-Ready, No Spreadsheets</title>
-  <meta name="description" content="Free CPE tracker for CPAs. Upload certificates, auto-map to NASBA ethics and A&A categories, flag compliance gaps, and export a renewal-ready summary before June 30. No account required." />
+  <title>CPETrack — Stop Digging for CPE Certificates at Renewal Time</title>
+  <meta name="description" content="Free CPE tracker for CPAs. Consolidate hours from Becker, CPA Academy, Surgent and any provider into one NASBA-ready view. Know your gap before June 30 — no spreadsheet required." />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cpe.paprika-labs.app" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -22,7 +23,7 @@
       background: #fff;
       border: 1px solid #e5e5e5;
       border-radius: 12px;
-      max-width: 520px;
+      max-width: 540px;
       width: 100%;
       padding: 2.5rem 2rem;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
@@ -39,6 +40,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
     .deadline-banner span.states {
       font-weight: 400;
@@ -69,12 +71,28 @@
       line-height: 1.6;
       margin-bottom: 1.25rem;
     }
+    .sub strong {
+      color: #333;
+    }
+    .stat-callout {
+      background: #f5f5f4;
+      border-left: 3px solid #e65100;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1.25rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.5;
+    }
+    .stat-callout strong {
+      color: #111;
+    }
     ul.benefits {
       list-style: none;
       margin-bottom: 1.5rem;
     }
     ul.benefits li {
-      padding: 0.4rem 0;
+      padding: 0.45rem 0;
       padding-left: 1.5rem;
       position: relative;
       color: #333;
@@ -90,9 +108,30 @@
     }
     .early-note {
       font-size: 0.875rem;
-      color: #777;
+      color: #666;
       margin-bottom: 1.5rem;
-      font-style: italic;
+      line-height: 1.5;
+      background: #fafaf9;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 0.7rem 0.9rem;
+    }
+    .calculator-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding: 0.7rem 1rem;
+      background: #fff3e0;
+      border: 1.5px solid #ffcc80;
+      border-radius: 6px;
+      color: #e65100;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .calculator-link:hover {
+      background: #ffe0b2;
     }
     .cta-section {
       display: flex;
@@ -123,6 +162,7 @@
       font-size: 0.8rem;
       color: #999;
       text-align: center;
+      line-height: 1.4;
     }
     .footer {
       margin-top: 2rem;
@@ -136,7 +176,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "CPETrack",
-    "description": "Free CPE tracking tool for CPAs. Auto-maps CPE certificates to NASBA categories, flags compliance gaps, and exports renewal-ready summaries.",
+    "description": "Free CPE tracking tool for CPAs. Consolidate continuing education hours from any provider into one NASBA-ready view. Know your gap before renewal — no spreadsheet required.",
     "applicationCategory": "BusinessApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "operatingSystem": "Web",
@@ -148,25 +188,41 @@
 <div class="card">
   <div class="deadline-banner">
     ⚠️ June 30 CPE deadline approaching —
-    <span class="states">FL, MA, MI, MN, CT, OR and more</span>
+    <span class="states">FL, MA, MI, MN, CT, OR, DE, KS, MS and more</span>
   </div>
-  <span class="tag">Early Access</span>
-  <h1>Your CPE hours, renewal-ready. No spreadsheets.</h1>
-  <p class="sub">If your license renews June 30, now is when you find out you&apos;re short. CPETrack maps your certificates to NASBA categories, flags gaps, and exports a clean completion summary &mdash; before renewal week turns into a fire drill.</p>
+  <span class="tag">Beta</span>
+  <h1>Stop digging for CPE certificates at renewal time.</h1>
+
+  <p class="sub">
+    Like most CPAs, you probably track CPE in a spreadsheet — or just hunt for certificates when renewal arrives. Hours scattered across Becker, CPA Academy, Surgent, state societies, and a dozen one-off webinars. CPETrack consolidates them into one view, categorized to NASBA requirements, so you always know where you stand.
+  </p>
+
+  <div class="stat-callout">
+    <strong>78% of CPAs say managing CPE is difficult</strong> — and most are still doing it manually.
+    <br><small>Source: AICPA 2024 survey</small>
+  </div>
+
   <ul class="benefits">
-    <li>Upload CPE certificates and auto-map to ethics, A&amp;A, and other NASBA hour buckets</li>
-    <li>See exactly where you stand &mdash; gaps flagged before they become a licensing problem</li>
-    <li>Export a renewal-ready summary you can keep on file if you&apos;re ever audited</li>
+    <li>Consolidate CPE from any provider — Becker, CPA Academy, Surgent, AICPA, state societies, anywhere</li>
+    <li>Auto-mapped to NASBA categories: ethics, A&amp;A, technical, other — no manual sorting</li>
+    <li>See your gap clearly — hours remaining by category, flagged before they become a licensing problem</li>
+    <li>Export a renewal-ready summary to keep on file if you&apos;re ever board-audited</li>
   </ul>
-  <p class="early-note">We&apos;re building this with a small group of CPAs. No commitment &mdash; just let us know you&apos;re interested and we&apos;ll reach out when early access opens.</p>
-  <a href="/calculator.html" style="display:block;text-align:center;margin-bottom:1.5rem;padding:0.7rem 1rem;background:#fff3e0;border:1.5px solid #ffcc80;border-radius:6px;color:#e65100;font-weight:600;font-size:0.9rem;text-decoration:none;">
-    📊 Already have hours? Check your compliance gap →
+
+  <p class="early-note">
+    CPETrack is in beta. We&apos;re working with a small group of CPAs to make sure it handles real-world certificates correctly before wider launch. Join the list — we&apos;ll reach out personally within 48 hours.
+  </p>
+
+  <a class="calculator-link" href="/calculator.html">
+    📊 Already have hours? Check your June 30 compliance gap →
   </a>
+
   <div class="cta-section">
-    <p class="cta-label">Request early access</p>
-    <a class="cta-btn" href="mailto:paprika-lab@agentmail.to?subject=CPETrack%20early%20access&body=I%27m%20interested%20in%20CPETrack.%20My%20CPA%20license%20state%3A%20____%0A%0AI%27d%20like%20to%20join%20the%20early%20access%20list.">Email us to reserve a spot</a>
-    <p class="cta-note">Opens your email client. One reply when spots open &mdash; no spam.</p>
+    <p class="cta-label">Get early access — free</p>
+    <a class="cta-btn" href="mailto:paprika-lab@agentmail.to?subject=CPETrack%20early%20access&body=I%27m%20interested%20in%20CPETrack.%0A%0AMy%20CPA%20license%20state%3A%20____%0AMy%20renewal%20deadline%3A%20____%0AProviders%20I%20use%20for%20CPE%3A%20____%0A%0AI%27d%20like%20to%20join%20the%20early%20access%20list.">Request access — takes 30 seconds</a>
+    <p class="cta-note">Opens your email client. We reply within 48 hours with access instructions. No spam, ever.</p>
   </div>
+
   <p class="footer">Built by <a href="https://paprika-labs.app" style="color:#bbb">Paprika Labs</a></p>
 </div>
 </body>
