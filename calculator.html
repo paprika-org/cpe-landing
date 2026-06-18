@@ -239,14 +239,15 @@
       <label for="state">License State <span class="hint">— requirements vary by state</span></label>
       <select id="state">
         <option value="">Select your state...</option>
-        <option value="FL">Florida (FL) — June 30 deadline</option>
-        <option value="MA">Massachusetts (MA) — June 30 deadline</option>
-        <option value="MI">Michigan (MI) — June 30 deadline</option>
-        <option value="MN">Minnesota (MN) — June 30 deadline</option>
-        <option value="CT">Connecticut (CT) — June 30 deadline</option>
-        <option value="OR">Oregon (OR) — June 30 deadline</option>
-        <option value="PA">Pennsylvania (PA) — June 30 deadline</option>
-        <option value="WI">Wisconsin (WI) — June 30 deadline</option>
+        <option value="CT">Connecticut (CT) — June 30, annual</option>
+        <option value="FL">Florida (FL) — June 30, biennial</option>
+        <option value="IN">Indiana (IN) — June 30, triennial (2026 renewal year)</option>
+        <option value="MA">Massachusetts (MA) — June 30, biennial</option>
+        <option value="MN">Minnesota (MN) — June 30, annual</option>
+        <option value="NH">New Hampshire (NH) — June 30, annual</option>
+        <option value="OR">Oregon (OR) — June 30, biennial (even-numbered permits)</option>
+        <option value="PA">Pennsylvania (PA) — June 30, biennial</option>
+        <option value="WI">Wisconsin (WI) — June 30, biennial</option>
         <option value="OTHER">Other state (use NASBA defaults)</option>
       </select>
     </div>
@@ -255,6 +256,7 @@
       <select id="cycle">
         <option value="1">Annual (1 year)</option>
         <option value="2" selected>Biennial (2 years)</option>
+        <option value="3">Triennial (3 years)</option>
       </select>
     </div>
   </div>
@@ -321,17 +323,20 @@
 </div>
 
 <script>
-// State-specific CPE requirements (simplified — biennial cycle)
+// State-specific CPE requirements (biennial basis — annual/triennial states scaled via cycleMult)
+// Note: total/ethics/aa are per BIENNIAL cycle. Annual states: user selects "Annual" → values halved.
+// Indiana is triennial; user should select "Triennial" → values multiplied 1.5×.
 const STATE_REQS = {
-  FL: { total: 80, ethics: 4, aa: 8,  technical_pct: 0,  notes: "FL: 80 hrs/2yrs, 4 ethics, 8 A&A" },
-  MA: { total: 80, ethics: 4, aa: 0,  technical_pct: 0,  notes: "MA: 80 hrs/2yrs, 4 ethics" },
-  MI: { total: 80, ethics: 4, aa: 8,  technical_pct: 0,  notes: "MI: 80 hrs/2yrs, 4 ethics, 8 A&A" },
-  MN: { total: 80, ethics: 4, aa: 0,  technical_pct: 0,  notes: "MN: 80 hrs/2yrs, 4 ethics" },
-  CT: { total: 80, ethics: 4, aa: 0,  technical_pct: 0,  notes: "CT: 80 hrs/2yrs, 4 ethics" },
-  OR: { total: 80, ethics: 4, aa: 8,  technical_pct: 0,  notes: "OR: 80 hrs/2yrs, 4 ethics, 8 A&A" },
-  PA: { total: 80, ethics: 4, aa: 24, technical_pct: 0,  notes: "PA: 80 hrs/2yrs, 4 ethics, 24 A&A" },
-  WI: { total: 80, ethics: 3, aa: 0,  technical_pct: 0,  notes: "WI: 80 hrs/2yrs, 3 ethics" },
-  OTHER: { total: 80, ethics: 4, aa: 0, technical_pct: 0, notes: "NASBA model: 80 hrs/2yrs, 4 ethics" },
+  CT: { total: 80, ethics: 4, aa: 0,  notes: "CT: 40 hrs/year (80 biennial), 2 ethics/yr" },
+  FL: { total: 80, ethics: 4, aa: 8,  notes: "FL: 80 hrs/2yrs, 4 ethics, 8 A&A" },
+  IN: { total: 80, ethics: 4, aa: 8,  notes: "IN: 120 hrs/3yrs — select Triennial above" },
+  MA: { total: 80, ethics: 4, aa: 0,  notes: "MA: 80 hrs/2yrs, 4 ethics" },
+  MN: { total: 40, ethics: 4, aa: 0,  notes: "MN: 20 hrs/year (40 biennial), 4 ethics/cycle" },
+  NH: { total: 40, ethics: 4, aa: 0,  notes: "NH: 20 hrs/year (40 biennial), 4 ethics/cycle" },
+  OR: { total: 80, ethics: 4, aa: 8,  notes: "OR: 80 hrs/2yrs (even-numbered permits), 4 ethics, 8 A&A" },
+  PA: { total: 80, ethics: 4, aa: 24, notes: "PA: 80 hrs/2yrs, 4 ethics, 24 A&A" },
+  WI: { total: 80, ethics: 3, aa: 0,  notes: "WI: 80 hrs/2yrs, 3 ethics" },
+  OTHER: { total: 80, ethics: 4, aa: 0, notes: "NASBA model: 80 hrs/2yrs, 4 ethics" },
 };
 
 function n(id) {
@@ -344,7 +349,7 @@ function calculate() {
   if (!state) { alert('Please select your license state.'); return; }
 
   const reqs = STATE_REQS[state] || STATE_REQS['OTHER'];
-  const cycleMult = cycle === 1 ? 0.5 : 1;
+  const cycleMult = cycle === 1 ? 0.5 : (cycle === 3 ? 1.5 : 1);
   const ethicsReq  = reqs.ethics  * cycleMult;
   const aaReq      = reqs.aa      * cycleMult;
   const totalReq   = reqs.total   * cycleMult;
@@ -419,3 +424,4 @@ function calculate() {
 </script>
 </body>
 </html>
+
