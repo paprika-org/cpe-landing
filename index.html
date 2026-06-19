@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CPETrack — Stop Digging for CPE Certificates at Renewal Time</title>
-  <meta name="description" content="Free CPE tracker for CPAs. Consolidate hours from Becker, CPA Academy, Surgent and any provider into one NASBA-ready view. Know your gap before June 30 — no spreadsheet required." />
+  <meta name="description" content="Free CPE tracker for CPAs. Consolidate hours from Becker, CPA Academy, Surgent and any provider into one NASBA-ready view. Know your gap before your renewal deadline — no spreadsheet required." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://cpe.paprika-labs.app" />
   <style>
@@ -33,7 +33,7 @@
       border: 1px solid #ffcc80;
       border-radius: 6px;
       padding: 0.65rem 0.9rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.75rem;
       font-size: 0.875rem;
       color: #e65100;
       font-weight: 600;
@@ -45,6 +45,29 @@
     .deadline-banner span.states {
       font-weight: 400;
       color: #bf360c;
+    }
+    .deadline-banner-dec {
+      background: #e3f2fd;
+      border: 1px solid #90caf9;
+      border-radius: 6px;
+      padding: 0.65rem 0.9rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.875rem;
+      color: #1565c0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .deadline-banner-dec span.states {
+      font-weight: 400;
+      color: #0d47a1;
+    }
+    .deadline-banner-dec a {
+      color: #1565c0;
+      font-size: 0.8rem;
+      margin-left: auto;
     }
     .tag {
       display: inline-block;
@@ -187,8 +210,13 @@
 <body>
 <div class="card">
   <div class="deadline-banner">
-    ⚠️ June 30 CPE deadline approaching —
-    <span class="states">FL, MA, MI, MN, CT, OR, DE, KS, MS and more</span>
+    ⚠️ June 30 CPE deadline —
+    <span class="states">FL, MA, MN, CT, OR, NH and more</span>
+  </div>
+  <div class="deadline-banner-dec">
+    📅 December 31 deadline —
+    <span class="states">NY, NJ, IN, OH, NC, MO and more</span>
+    <a href="/december-2026-cpe-deadline.html">→ guide</a>
   </div>
   <span class="tag">Beta</span>
   <h1>Stop digging for CPE certificates at renewal time.</h1>
@@ -214,7 +242,7 @@
   </p>
 
   <a class="calculator-link" href="/calculator.html">
-    📊 Already have hours? Check your June 30 compliance gap →
+    📊 Check your CPE compliance gap →
   </a>
 
   <div class="cta-section">
