@@ -23,7 +23,7 @@
       background: #fff;
       border: 1px solid #e5e5e5;
       border-radius: 12px;
-      max-width: 540px;
+      max-width: 560px;
       width: 100%;
       padding: 2.5rem 2rem;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
@@ -129,16 +129,6 @@
       color: #e65100;
       font-weight: 700;
     }
-    .early-note {
-      font-size: 0.875rem;
-      color: #666;
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
-      background: #fafaf9;
-      border: 1px solid #e5e5e5;
-      border-radius: 6px;
-      padding: 0.7rem 0.9rem;
-    }
     .calculator-link {
       display: block;
       text-align: center;
@@ -156,36 +146,107 @@
     .calculator-link:hover {
       background: #ffe0b2;
     }
-    .cta-section {
-      display: flex;
-      flex-direction: column;
+    /* Pricing tiers */
+    .pricing-section {
+      margin-bottom: 1.5rem;
+    }
+    .pricing-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 0.75rem;
     }
-    .cta-label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #333;
+    .tier {
+      border: 1.5px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
     }
-    .cta-btn {
-      display: inline-block;
+    .tier.pro {
+      border-color: #e65100;
+      background: #fff8f5;
+      position: relative;
+    }
+    .tier-badge {
+      position: absolute;
+      top: -10px;
+      right: 10px;
       background: #e65100;
       color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 6px;
-      padding: 0.85rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-align: center;
-      cursor: pointer;
-      transition: background 0.15s;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .cta-btn:hover { background: #bf360c; }
+    .tier-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tier-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #111;
+      line-height: 1;
+    }
+    .tier-price span {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #888;
+    }
+    .tier-features {
+      list-style: none;
+      font-size: 0.8rem;
+      color: #555;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .tier-features li::before {
+      content: "✓ ";
+      color: #e65100;
+      font-weight: 700;
+    }
+    .tier-btn {
+      display: block;
+      text-align: center;
+      padding: 0.55rem 0.75rem;
+      border-radius: 5px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+      margin-top: 0.4rem;
+    }
+    .tier-btn.free-btn {
+      background: #f5f5f4;
+      color: #444;
+      border: 1px solid #ddd;
+    }
+    .tier-btn.free-btn:hover { background: #eee; }
+    .tier-btn.pro-btn {
+      background: #e65100;
+      color: #fff;
+    }
+    .tier-btn.pro-btn:hover { background: #bf360c; }
     .cta-note {
       font-size: 0.8rem;
       color: #999;
       text-align: center;
       line-height: 1.4;
+      margin-top: 0.5rem;
     }
     .footer {
       margin-top: 2rem;
@@ -201,7 +262,10 @@
     "name": "CPETrack",
     "description": "Free CPE tracking tool for CPAs. Consolidate continuing education hours from any provider into one NASBA-ready view. Know your gap before renewal — no spreadsheet required.",
     "applicationCategory": "BusinessApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "offers": [
+      { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free" },
+      { "@type": "Offer", "price": "9.99", "priceCurrency": "USD", "name": "CPE Pro", "billingIncrement": "P1Y" }
+    ],
     "operatingSystem": "Web",
     "url": "https://cpe.paprika-labs.app"
   }
@@ -237,18 +301,39 @@
     <li>Export a renewal-ready summary to keep on file if you&apos;re ever board-audited</li>
   </ul>
 
-  <p class="early-note">
-    CPETrack is in beta. We&apos;re working with a small group of CPAs to make sure it handles real-world certificates correctly before wider launch. Join the list — we&apos;ll reach out personally within 48 hours.
-  </p>
-
   <a class="calculator-link" href="/calculator.html">
     📊 Check your CPE compliance gap →
   </a>
 
-  <div class="cta-section">
-    <p class="cta-label">Get early access — free</p>
-    <a class="cta-btn" href="mailto:paprika-lab@agentmail.to?subject=CPETrack%20early%20access&body=I%27m%20interested%20in%20CPETrack.%0A%0AMy%20CPA%20license%20state%3A%20____%0AMy%20renewal%20deadline%3A%20____%0AProviders%20I%20use%20for%20CPE%3A%20____%0A%0AI%27d%20like%20to%20join%20the%20early%20access%20list.">Request access — takes 30 seconds</a>
-    <p class="cta-note">Opens your email client. We reply within 48 hours with access instructions. No spam, ever.</p>
+  <div class="pricing-section">
+    <p class="pricing-label">Choose your plan</p>
+    <div class="pricing-grid">
+      <div class="tier">
+        <div class="tier-name">Free</div>
+        <div class="tier-price">$0 <span>/ year</span></div>
+        <ul class="tier-features">
+          <li>Dashboard &amp; gap tracking</li>
+          <li>NASBA category mapping</li>
+          <li>Renewal deadline calculator</li>
+          <li>Early access (beta)</li>
+        </ul>
+        <a class="tier-btn free-btn" href="mailto:paprika-lab@agentmail.to?subject=CPETrack%20early%20access&body=I%27m%20interested%20in%20CPETrack.%0A%0AMy%20CPA%20license%20state%3A%20____%0AMy%20renewal%20deadline%3A%20____%0AProviders%20I%20use%20for%20CPE%3A%20____%0A%0AI%27d%20like%20to%20join%20the%20early%20access%20list.">Join waitlist</a>
+      </div>
+      <div class="tier pro">
+        <div class="tier-badge">Popular</div>
+        <div class="tier-name">CPE Pro</div>
+        <div class="tier-price">$9.99 <span>/ year</span></div>
+        <ul class="tier-features">
+          <li>Everything in Free</li>
+          <li>PDF renewal reports</li>
+          <li>90/60/30-day alerts</li>
+          <li>Multi-state tracking</li>
+          <li>Team &amp; firm view</li>
+        </ul>
+        <a class="tier-btn pro-btn" href="https://paprika-labs.gumroad.com/l/cpe-pro" target="_blank" rel="noopener">Buy now — $9.99/yr</a>
+      </div>
+    </div>
+    <p class="cta-note">CPE Pro unlocks instantly after purchase. 30-day refund guarantee.</p>
   </div>
 
   <p class="footer">Built by <a href="https://paprika-labs.app" style="color:#bbb">Paprika Labs</a></p>
