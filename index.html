@@ -238,6 +238,81 @@
       line-height: 1.4;
       margin-top: 0.5rem;
     }
+    /* Dec 31 Guide Email Capture */
+    .guide-capture {
+      background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e9 100%);
+      border: 1px solid #90caf9;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .guide-tag {
+      display: inline-block;
+      background: #1565c0;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .guide-capture-header h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0d47a1;
+      margin-bottom: 0.5rem;
+    }
+    .guide-capture-header p {
+      font-size: 0.875rem;
+      color: #1a5276;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+    .capture-form { display: flex; flex-direction: column; gap: 0.6rem; }
+    .capture-fields { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .capture-select, .capture-email {
+      flex: 1;
+      min-width: 140px;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid #90caf9;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      background: #fff;
+      color: #111;
+      outline: none;
+    }
+    .capture-select:focus, .capture-email:focus { border-color: #1565c0; }
+    .capture-btn {
+      background: #1565c0;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.65rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+    }
+    .capture-btn:hover { background: #0d47a1; }
+    .capture-note {
+      font-size: 0.75rem;
+      color: #546e7a;
+      text-align: center;
+      margin: 0;
+    }
+    .guide-success {
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      color: #1b5e20;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
     /* FAQ Section */
     .faq-section {
       margin-top: 2rem;
@@ -494,6 +569,44 @@
     <p class="cta-note">CPE Pro unlocks instantly after purchase. 30-day refund guarantee.</p>
   </div>
 
+  <!-- Dec 31 CPE Guide Email Capture — Gate 2 validation signal -->
+  <div class="guide-capture" id="dec31-guide">
+    <div class="guide-capture-header">
+      <span class="guide-tag">Free Guide</span>
+      <h2>Is your CPE deadline December 31?</h2>
+      <p>NY, NJ, NC, MO, CO, OH, IN, VA, WA, AZ — and more. Get your state's complete Dec 31 deadline guide: exact hours required, ethics minimums, and what to do if you're running short.</p>
+    </div>
+    <div id="guide-success-msg" style="display:none" class="guide-success">
+      ✓ Guide on its way — check your inbox. We'll include your state's exact requirements.
+    </div>
+    <form class="capture-form" id="guide-form" action="https://formsubmit.co/paprika-lab@agentmail.to" method="POST">
+      <input type="hidden" name="_subject" value="Dec 31 CPE Guide Request" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://cpe.paprika-labs.app/?guide=sent#dec31-guide" />
+      <input type="hidden" name="_template" value="table" />
+      <div class="capture-fields">
+        <select name="state" required class="capture-select">
+          <option value="" disabled selected>Your CPA license state</option>
+          <option value="NY">New York — Dec 31</option>
+          <option value="NJ">New Jersey — Dec 31</option>
+          <option value="NC">North Carolina — Dec 31</option>
+          <option value="MO">Missouri — Dec 31</option>
+          <option value="CO">Colorado — Dec 31</option>
+          <option value="OH">Ohio — Dec 31</option>
+          <option value="IN">Indiana — Dec 31</option>
+          <option value="VA">Virginia — Dec 31</option>
+          <option value="WA">Washington — Dec 31</option>
+          <option value="AZ">Arizona — Dec 31</option>
+          <option value="PA">Pennsylvania — Dec 31</option>
+          <option value="other">Other state</option>
+        </select>
+        <input type="email" name="email" required placeholder="your@email.com" class="capture-email" />
+      </div>
+      <button type="submit" class="capture-btn">Send me the Dec 31 guide →</button>
+      <p class="capture-note">No spam. One email with your state's requirements. Unsubscribe anytime.</p>
+    </form>
+  </div>
+
   <!-- FAQ Section: drives GEO/LLM citation -->
   <div class="faq-section">
     <h2>CPE Requirements — Common Questions</h2>
@@ -532,6 +645,14 @@
   <p class="footer">Resources: <a href="/cpe-requirements-by-state.html" style="color:#bbb;">CPE Requirements by State</a> · <a href="/june-2026-cpe-deadline.html" style="color:#bbb;">June 30 Guide</a> · <a href="/december-2026-cpe-deadline.html" style="color:#bbb;">December 31 Guide</a> · <a href="/calculator.html" style="color:#bbb;">Calculator</a></p><p class="footer">Built by <a href="https://paprika-labs.app" style="color:#bbb">Paprika Labs</a></p>
 </div>
 <script>
+  // Show success message if redirected back after form submit
+  if (window.location.search.includes('guide=sent')) {
+    var form = document.getElementById('guide-form');
+    var msg = document.getElementById('guide-success-msg');
+    if (form) form.style.display = 'none';
+    if (msg) msg.style.display = 'block';
+  }
+
   // Simple FAQ toggle
   document.querySelectorAll('.faq-q').forEach(function(q) {
     q.addEventListener('click', function() {
