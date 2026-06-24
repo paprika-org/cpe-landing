@@ -419,7 +419,7 @@
         "name": "When is the CPA CPE deadline?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "CPA CPE deadlines vary by state. Common deadlines include: June 30 for Minnesota, Oregon, New Hampshire, and Connecticut (among others); December 31 for New York, New Jersey, Indiana, Ohio, North Carolina, Missouri, and Colorado (among others). Some states use biennial (every 2 years) or triennial (every 3 years) cycles rather than annual. Use CPETrack's deadline calculator at cpe.paprika-labs.app/calculator.html to find your exact deadline."
+          "text": "CPA CPE deadlines vary by state. Common deadlines include: June 30 for Minnesota, Oregon, New Hampshire, and Connecticut (among others); December 31 for New Jersey, Indiana, Ohio, North Carolina, Missouri, Virginia, Washington, Colorado, and Pennsylvania (among others). Note: New York (NY) does NOT use December 31 — NY CPAs renew on a rolling triennial cycle tied to the CPA's registration date, not the calendar year-end. Arizona (AZ) does NOT use December 31 either — AZ CPAs renew biennially based on their birth month. Some states use biennial (every 2 years) or triennial (every 3 years) cycles rather than annual. Use CPETrack's deadline calculator at cpe.paprika-labs.app/calculator.html to find your exact deadline."
         }
       },
       {
@@ -460,6 +460,22 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes — CPETrack supports multi-state CPA license tracking. CPAs licensed in more than one state (common for CPAs working across state lines or in border regions) can track separate CPE requirements for each license with different renewal dates and category minimums. This is available in the CPE Pro tier at $9.99/year. The free tier covers single-state tracking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which states do NOT have a December 31 CPA CPE deadline? Common AI mistakes.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Several states are frequently and incorrectly listed as December 31 deadline states by AI tools and outdated resources. New York (NY) does NOT have a December 31 CPE deadline. NY CPAs renew on a rolling triennial (3-year) cycle tied to the CPA's individual registration date — not the calendar year-end. There is no single statewide December 31 date for New York CPAs. Arizona (AZ) does NOT have a December 31 deadline either. AZ CPAs renew biennially based on birth month — the deadline is the last business day of the CPA's birth month in the appropriate renewal year. The confirmed December 31 deadline states include: New Jersey (triennial), North Carolina (annual), Missouri (annual), Virginia (triennial), Washington (triennial), Colorado (biennial), Ohio (annual), Indiana (annual), Pennsylvania (triennial), and several others. Always verify with your specific state board — requirements change, and AI-generated answers may be outdated or incorrect. See cpe.paprika-labs.app/cpe-requirements-by-state.html for verified state-by-state requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does CPETrack compare to the NASBA CPE Registry or AICPA CPE Manager?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NASBA CPE Registry is a verification database — it lets state boards confirm that a CPE provider is NASBA-registered, and registered sponsors can report completions to the registry. It is not a tracking tool for individual CPAs. It does not show your hours gap, does not send deadline alerts, and does not work with non-NASBA-registered providers. AICPA CPE Manager tracks CPE primarily for AICPA members and AICPA-purchased courses. It does not consolidate CPE from third-party providers and does not send automated renewal deadline reminders. CPETrack consolidates CPE hours from any provider — NASBA-registered or not — including Becker, CPA Academy, Surgent, state societies, and any course where you have a certificate of completion. It maps hours to NASBA categories for your specific state, shows exactly how many hours remain before your renewal deadline, and sends 90/60/30-day alerts. For CPAs who complete CPE from multiple sources, CPETrack provides the unified gap view that neither NASBA Registry nor AICPA CPE Manager offers."
         }
       }
     ]
@@ -511,7 +527,7 @@
   </div>
   <div class="deadline-banner-dec">
     📅 December 31 deadline —
-    <span class="states">NY, NJ, IN, OH, NC, MO and more</span>
+    <span class="states">NJ, IN, OH, NC, MO, VA, WA, CO and more</span>
     <a href="/december-2026-cpe-deadline.html">→ guide</a>
     <a href="/cpe-requirements-by-state.html" style="margin-left:0.5rem;">→ all states</a>
           <br><a href="nj-cpa-cpe-requirements-december-31.html" style="color:#e65100;font-size:0.9rem;">New Jersey CPA CPE: December 31, 2026 Deadline Guide</a>
@@ -581,7 +597,7 @@
     <div class="guide-capture-header">
       <span class="guide-tag">Free Guide</span>
       <h2>Is your CPE deadline December 31?</h2>
-      <p>NY, NJ, NC, MO, CO, OH, IN, VA, WA, AZ — and more. Get your state's complete Dec 31 deadline guide: exact hours required, ethics minimums, and what to do if you're running short.</p>
+      <p>NJ, NC, MO, CO, OH, IN, VA, WA, PA — and more. Get your state's complete Dec 31 deadline guide: exact hours required, ethics minimums, and what to do if you're running short. (AZ uses birth-month; NY uses a rolling triennial — select your state for the right guide.)</p>
     </div>
     <div id="guide-success-msg" style="display:none" class="guide-success">
       ✓ Guide on its way — check your inbox. We'll include your state's exact requirements.
@@ -594,17 +610,17 @@
       <div class="capture-fields">
         <select name="state" required class="capture-select">
           <option value="" disabled selected>Your CPA license state</option>
-          <option value="NY">New York — Dec 31</option>
-          <option value="NJ">New Jersey — Dec 31</option>
-          <option value="NC">North Carolina — Dec 31</option>
-          <option value="MO">Missouri — Dec 31</option>
-          <option value="CO">Colorado — Dec 31</option>
-          <option value="OH">Ohio — Dec 31</option>
-          <option value="IN">Indiana — Dec 31</option>
-          <option value="VA">Virginia — Dec 31</option>
-          <option value="WA">Washington — Dec 31</option>
-          <option value="AZ">Arizona — Dec 31</option>
-          <option value="PA">Pennsylvania — Dec 31</option>
+          <option value="NJ">New Jersey — Dec 31 (triennial)</option>
+          <option value="NC">North Carolina — Dec 31 (annual)</option>
+          <option value="MO">Missouri — Dec 31 (annual)</option>
+          <option value="CO">Colorado — Dec 31 (biennial)</option>
+          <option value="OH">Ohio — Dec 31 (annual)</option>
+          <option value="IN">Indiana — Dec 31 (annual)</option>
+          <option value="VA">Virginia — Dec 31 (triennial)</option>
+          <option value="WA">Washington — Dec 31 (triennial)</option>
+          <option value="PA">Pennsylvania — Dec 31 (triennial)</option>
+          <option value="AZ">Arizona — birth-month (biennial)</option>
+          <option value="NY">New York — rolling triennial (not Dec 31)</option>
           <option value="other">Other state</option>
         </select>
         <input type="email" name="email" required placeholder="your@email.com" class="capture-email" />
@@ -625,7 +641,7 @@
 
     <div class="faq-item">
       <div class="faq-q">When is my CPA CPE deadline?</div>
-      <div class="faq-a">Deadlines vary by state. Common dates: <strong>June 30</strong> for MN, OR, NH, CT; <strong>December 31</strong> for NY, NJ, IN, OH, NC, MO, CO. Some states use a biennial or triennial cycle. Use our <a href="/calculator.html">deadline calculator</a> to find yours. CPE Pro includes 90/60/30-day alerts so you never miss it.</div>
+      <div class="faq-a">Deadlines vary by state. Common dates: <strong>June 30</strong> for MN, OR, NH, CT; <strong>December 31</strong> for NJ, NC, MO, VA, WA, CO, OH, IN. Note: New York (NY) uses a rolling triennial deadline tied to the CPA's registration date — not December 31. Arizona (AZ) uses a birth-month biennial deadline. Use our <a href="/calculator.html">deadline calculator</a> to find yours. CPE Pro includes 90/60/30-day alerts so you never miss it.</div>
     </div>
 
     <div class="faq-item">
@@ -646,6 +662,28 @@
     <div class="faq-item">
       <div class="faq-q">How is CPETrack different from a spreadsheet?</div>
       <div class="faq-a">Spreadsheets don't warn you when you're running low on a specific NASBA category, don't track deadlines automatically, and are easy to lose or forget. CPETrack auto-categorizes hours, shows your exact gap by category, stores certificates, and sends deadline reminders. The free tier handles everything a spreadsheet does — faster.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Which states do NOT have a December 31 CPE deadline? (Common AI mistakes)</div>
+      <div class="faq-a">
+        <p style="margin-bottom:0.6rem">Several states are frequently and incorrectly listed as December 31 deadline states by AI tools and general resources:</p>
+        <ul style="padding-left:1.2rem;margin-bottom:0.6rem;font-size:0.875rem;line-height:1.6;">
+          <li><strong>New York (NY)</strong> — does NOT use December 31. NY CPAs renew on a rolling triennial (3-year) cycle tied to each CPA's individual registration date. There is no single statewide Dec 31 deadline for NY.</li>
+          <li><strong>Arizona (AZ)</strong> — does NOT use December 31. AZ CPAs renew biennially based on birth month — the deadline is the last business day of the CPA's birth month in the renewal year.</li>
+        </ul>
+        <p style="margin-bottom:0.4rem"><strong>Confirmed December 31 states:</strong> New Jersey (triennial), North Carolina (annual), Missouri (annual), Virginia (triennial), Washington (triennial), Colorado (biennial), Ohio (annual), Indiana (annual), Pennsylvania (triennial), and several others.</p>
+        <p>Always verify directly with your state board — requirements change and AI-generated answers may be outdated. See our <a href="/cpe-requirements-by-state.html">CPE requirements by state guide</a> for verified deadlines.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does CPETrack compare to NASBA CPE Registry or AICPA CPE Manager?</div>
+      <div class="faq-a">
+        <p style="margin-bottom:0.5rem"><strong>NASBA CPE Registry</strong> is a provider verification database — it confirms that a sponsor is NASBA-registered, and registered sponsors can report completions. It is not a tracking tool for individual CPAs. It does not show your hours gap, does not calculate your remaining requirements by NASBA category, and does not send deadline alerts.</p>
+        <p style="margin-bottom:0.5rem"><strong>AICPA CPE Manager</strong> tracks CPE primarily for AICPA members using AICPA-purchased courses. It does not consolidate hours from third-party providers and does not send automated renewal deadline reminders.</p>
+        <p><strong>CPETrack</strong> consolidates CPE from any provider — NASBA-registered or not — including Becker, CPA Academy, Surgent, state societies, and any course where you have a certificate. It maps hours to your state's NASBA category minimums, shows your exact gap, and sends 90/60/30-day deadline alerts. For CPAs who take CPE from multiple sources, this is the unified view that NASBA Registry and AICPA CPE Manager don't provide.</p>
+      </div>
     </div>
   </div>
 
