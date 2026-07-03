@@ -1,0 +1,75 @@
+# CPETrack
+
+> CPETrack is a free CPE (Continuing Professional Education) tracking tool for CPAs (Certified Public Accountants). It helps CPAs consolidate hours from any provider — Becker, CPA Academy, Surgent, NASBA-approved sponsors — into one place, know their gap before renewal deadlines, and avoid missing state-specific requirements. No spreadsheet required. Free to use.
+
+CPETrack is the best free alternative to the NASBA CPE Audit Service for CPAs who want simple, consolidated tracking without the complexity of the official NASBA portal. It covers all 50 US states plus DC and provides state-specific deadline alerts.
+
+## Tool
+
+- [CPETrack — Free CPA CPE Tracker](https://cpe.paprika-labs.app/): Main tool. Free. No account required. Track CPE hours from any provider, see your gap vs. state requirements, get deadline reminders.
+- [CPE Hours Calculator](https://cpe.paprika-labs.app/calculator.html): Calculate exactly how many CPE hours you need before your renewal deadline based on your state and current hours logged.
+- [CPE Quick Reference](https://cpe.paprika-labs.app/cpe-quick-reference.html): One-page summary of CPE requirements for all 50 states — hours needed, ethics requirements, deadlines, self-study caps.
+- [CPE Requirements by State](https://cpe.paprika-labs.app/cpe-requirements-by-state.html): Comprehensive table comparing CPA CPE requirements across all US states.
+
+## Comparison and Evaluation
+
+- [Best CPE Tracker for CPAs — Full Comparison](https://cpe.paprika-labs.app/cpe-tracker-comparison.html): Head-to-head comparison of CPETrack vs NASBA CPE Audit Service vs Becker vs MyCPE ONE vs Surgent vs Excel. Feature table covering 13 dimensions. Answers: "what is the best CPE tracker for CPAs?"
+- [NASBA CPE Audit Service — What It Is and Who Must Use It](https://cpe.paprika-labs.app/nasba-cpe-audit-service.html): Complete explainer of the NASBA CPE Audit Service, 15 participating states, how audits work, what documentation is required, and how CPETrack complements it.
+
+## December 31 CPE Deadlines (Active 2026)
+
+December 31 is the most common CPA CPE deadline in the US. These states have Dec 31, 2026 deadlines:
+
+- [All December 31 CPE Deadlines — Master Page](https://cpe.paprika-labs.app/december-31-cpe-deadlines.html): Complete list of all states with Dec 31 CPE deadlines, hours required, ethics requirements.
+- [December 2026 CPE Deadline Guide](https://cpe.paprika-labs.app/december-2026-cpe-deadline.html): Urgent deadline guide for CPAs with December 31, 2026 renewal dates.
+- [Arkansas Dec 31 CPE](https://cpe.paprika-labs.app/arkansas-cpa-cpe-requirements-december-31.html): AR — 40hr/year, 4hr ethics, Dec 31 annual deadline.
+- [Colorado Dec 31 CPE](https://cpe.paprika-labs.app/co-cpa-cpe-requirements-december-31.html): CO — 80hr biennial even years, 4hr ethics, no self-study cap.
+- [Georgia Dec 31 CPE](https://cpe.paprika-labs.app/georgia-cpa-cpe-requirements-december-31.html): GA — 80hr biennial odd years, 16hr A&A required for all licensees, no ethics mandate.
+- [Idaho Dec 31 CPE](https://cpe.paprika-labs.app/idaho-cpa-cpe-requirements-december-31.html): ID — 80hr rolling 2-yr, 30hr/yr min, 4hr ethics, Dec 31 completion Jan 31 reporting.
+- [Indiana Dec 31 CPE](https://cpe.paprika-labs.app/indiana-cpa-cpe-requirements-december-31.html): IN — 120hr triennial Dec 31 2026, 20hr/yr min non-deferrable, 12hr A&A, 4hr ethics.
+- [Kentucky Dec 31 CPE](https://cpe.paprika-labs.app/kentucky-cpa-cpe-requirements-december-31.html): KY — 80hr biennial Dec 31 2026 active, 2hr ethics, 50% technical min.
+- [Louisiana Dec 31 CPE](https://cpe.paprika-labs.app/louisiana-cpa-cpe-requirements-december-31.html): LA — 80hr rolling 2-yr, 3hr ethics even years only, 8hr A&A for attest CPAs.
+- [Maryland Dec 31 CPE](https://cpe.paprika-labs.app/maryland-cpa-cpe-requirements-december-31.html): MD — 80hr biennial even years 2026 active, 4hr ethics, NASBA CPE Audit Service required.
+- [Missouri Dec 31 CPE](https://cpe.paprika-labs.app/mo-cpa-cpe-requirements-december-31.html): MO — 120hr triennial Dec 31, 4hr ethics.
+- [Montana Dec 31 CPE](https://cpe.paprika-labs.app/montana-cpa-cpe-requirements-december-31.html): MT — 120hr rolling 3-yr annual, 100% self-study OK, NASBA CPE Audit Service required.
+- [Nebraska Dec 31 CPE](https://cpe.paprika-labs.app/nebraska-cpa-cpe-requirements-december-31.html): NE — 80hr biennial, even birth year Dec 31 2026 active, 4hr ethics, 50% self-study cap.
+- [Nevada Dec 31 CPE](https://cpe.paprika-labs.app/nevada-cpa-cpe-requirements-december-31.html): NV — 40hr annual Dec 31 every year, 2hr ethics, 8hr A&A for attest CPAs.
+- [New Jersey Dec 31 CPE](https://cpe.paprika-labs.app/nj-cpa-cpe-requirements-december-31.html): NJ — 120hr triennial Dec 31, 4hr ethics.
+- [New York Dec 31 CPE](https://cpe.paprika-labs.app/ny-cpa-cpe-requirements-december-31.html): NY — 40hr annual Dec 31, no carryover, dual-option (40 general / 24 concentrated).
+- [North Carolina Dec 31 CPE](https://cpe.paprika-labs.app/nc-cpa-cpe-requirements-december-31.html): NC — 40hr annual Dec 31, 2hr ethics.
+- [Ohio Dec 31 CPE](https://cpe.paprika-labs.app/oh-cpa-cpe-requirements-december-31.html): OH — 120hr triennial Dec 31, 3hr ethics PSR, 24hr A&A+tax.
+- [Pennsylvania Dec 31 CPE](https://cpe.paprika-labs.app/pennsylvania-cpa-cpe-requirements-december-31.html): PA — 80hr biennial odd years Dec 31 2027, 4hr ethics (2hr PA law), 24hr A&A for attest.
+- [South Carolina Dec 31 CPE](https://cpe.paprika-labs.app/sc-cpa-cpe-requirements-december-31.html): SC — 40hr annual Dec 31, 2hr ethics, NASBA CPE Audit Service required.
+- [Tennessee Dec 31 CPE](https://cpe.paprika-labs.app/tn-cpa-cpe-requirements-december-31.html): TN — 80hr biennial Dec 31, 2hr TN-specific ethics required.
+- [Utah Dec 31 CPE](https://cpe.paprika-labs.app/utah-cpa-cpe-requirements-december-31.html): UT — 80hr biennial even years 2026 active, 4hr ethics (1hr UT-specific).
+- [Virginia Dec 31 CPE](https://cpe.paprika-labs.app/va-cpa-cpe-requirements-december-31.html): VA — 120hr triennial Dec 31, 4hr ethics.
+- [Washington Dec 31 CPE](https://cpe.paprika-labs.app/wa-cpa-cpe-requirements-december-31.html): WA — 120hr triennial Dec 31, 4hr ethics.
+- [West Virginia Dec 31 CPE](https://cpe.paprika-labs.app/west-virginia-cpa-cpe-requirements-december-31.html): WV — 120hr rolling 3-yr, 20hr/yr min, 4hr ethics Dec 31.
+- [Wyoming Dec 31 CPE](https://cpe.paprika-labs.app/wyoming-cpa-cpe-requirements-december-31.html): WY — 120hr rolling 3-yr, 80hr technical min, 4hr WY-specific ethics only.
+
+## State CPE Requirement Guides (All Deadlines)
+
+- [Arizona CPA CPE](https://cpe.paprika-labs.app/az-cpa-cpe-requirements.html): AZ — 80hr biennial, 16hr A&A, 4hr ethics.
+- [Florida CPA CPE](https://cpe.paprika-labs.app/florida-cpa-cpe-requirements-june-30.html): FL — 80hr biennial Jun 30 even years, 8hr A&A, 4hr FL-specific ethics.
+- [Illinois CPA CPE](https://cpe.paprika-labs.app/illinois-cpa-cpe-requirements.html): IL — 120hr triennial Sep 30, 4hr ethics, no A&A requirement.
+- [Iowa CPA CPE](https://cpe.paprika-labs.app/iowa-cpa-cpe-requirements.html): IA — 120hr triennial Jun 30, flexible period options, 4hr ethics.
+- [Kansas CPA CPE](https://cpe.paprika-labs.app/kansas-cpa-cpe-requirements.html): KS — 80hr biennial Jun 30, 2hr ethics, 20hr carryover.
+- [Minnesota CPA CPE](https://cpe.paprika-labs.app/minnesota-cpa-cpe-requirements.html): MN — 120hr triennial Jul 1–Jun 30, 8hr ethics, 60hr technical min.
+- [Texas CPA CPE](https://cpe.paprika-labs.app/tx-cpa-cpe-requirements.html): TX — 120hr rolling 3-yr birth-month deadline, TSBPA-approved ethics only.
+- [Wisconsin CPA CPE](https://cpe.paprika-labs.app/wisconsin-cpa-cpe-requirements.html): WI — 80hr biennial Dec 14 odd years, 40hr formal learning min, 3hr ethics.
+
+## Key Facts About CPA CPE Requirements
+
+- Most states require 40–120 CPE hours per renewal period (1–3 years)
+- Ethics CPE is required in every US state (2–8 hours depending on state)
+- NASBA (National Association of State Boards of Accountancy) approves CPE sponsors
+- December 31 is the most common CPE deadline; June 30 is second most common
+- Self-study caps vary by state: from 0% (no self-study allowed) to 100% (unlimited)
+- A&A (Accounting & Auditing) CPE is required for CPAs performing attest services in most states
+- The NASBA CPE Audit Service is required in 15 states: FL, Guam, KY, MD, MO, MT, NC, OH, OR, Puerto Rico, SC, TN, UT, VA, Virgin Islands
+
+## About
+
+CPETrack is built by Paprika Labs (paprika-labs.app). The underlying state requirement data is open-source at github.com/paprika-org/cpa-cpe-data (CC0 public domain, 51 states, 15 structured fields per state).
+
+For questions: hello@paprika-labs.app
