@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cpe.paprika-labs.app/sitemap.xml
+
+# Content signals
+# search: yes
+# ai-input: yes
+# ai-train: no
+
