@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPA CPE Deadline Calculator — Days Remaining + Hours Tracker | CPETrack</title>
+  <meta name="description" content="Calculate your exact CPA CPE deadline, days remaining, and weekly pace needed for all 51 states. Free interactive CPE tracker for 2026-2027.">
+  <link rel="canonical" href="https://cpe.paprika-labs.app/cpe-deadline-calculator.html">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- JSON-LD: HowTo + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Your CPA CPE Deadline",
+    "description": "Use this calculator to find your state's CPA CPE deadline, days remaining, total hours required, ethics hours, and weekly pace needed.",
+    "step": [
+      { "@type": "HowToStep", "name": "Select your state", "text": "Choose your CPA license state from the dropdown." },
+      { "@type": "HowToStep", "name": "Enter hours completed", "text": "Enter how many CPE hours you have completed so far this period." },
+      { "@type": "HowToStep", "name": "View your deadline", "text": "See your exact deadline date, days remaining, hours needed, ethics hours required, and your weekly pace to finish on time." }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many CPE hours do CPAs need per year?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on your state. Most annual-deadline states require 40 hours per year. States like Texas, Louisiana, Montana, and New Mexico require 80-120 hours annually. Biennial states require 80 hours every two years, and triennial states require 120 hours every three years." }
+      },
+      {
+        "@type": "Question",
+        "name": "When is the CPA CPE deadline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "CPE deadlines vary by state. The most common deadline is December 31. Some states use June 30 (Maine, Michigan, Massachusetts, Oregon). Several states have birth-month deadlines (Arizona, California). Use this calculator to find your specific state's deadline." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many ethics CPE hours are required for CPAs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most states require 2-4 hours of ethics CPE per period. Minnesota requires 8 hours, North Dakota requires 6, Rhode Island requires 6. Ethics hours must typically be taken from specific ethics courses approved by your state board." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a biennial CPE cycle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A biennial CPE cycle means you complete your CPE requirements over a 2-year period instead of annually. States like Alaska, Colorado, Florida, and Pennsylvania use biennial cycles requiring 80 hours every two years." }
+      },
+      {
+        "@type": "Question",
+        "name": "What states have triennial CPE requirements?",
+        "acceptedAnswer": { "@type": "Answer", "text": "States with triennial (3-year) CPE cycles include Iowa, Illinois, Indiana, Minnesota, New Hampshire, New Jersey, Ohio, Rhode Island, Virginia, and Washington. These states require 120 CPE hours every three years." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --paprika: #e85d26;
+      --paprika-dark: #c44d1a;
+      --paprika-light: #fdf2ed;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --green: #16a34a;
+      --amber: #d97706;
+      --red: #dc2626;
+      --radius: 12px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: var(--paprika);
+      color: var(--white);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo { font-weight: 700; font-size: 1.1rem; text-decoration: none; color: var(--white); }
+    header nav a { color: rgba(255,255,255,0.85); text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+    header nav a:hover { color: var(--white); }
+
+    .hero {
+      background: linear-gradient(135deg, var(--paprika) 0%, var(--paprika-dark) 100%);
+      color: var(--white);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .hero h1 { margin: 0 0 12px; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; }
+    .hero p { margin: 0; font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+
+    .calc-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 32px;
+      margin: -24px auto 32px;
+      position: relative;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    .form-group select, .form-group input[type="number"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+      background: var(--white);
+      color: var(--text);
+    }
+    .form-group select:focus, .form-group input:focus {
+      outline: none;
+      border-color: var(--paprika);
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+    .hidden { display: none !important; }
+
+    .result-section {
+      background: var(--paprika-light);
+      border: 2px solid var(--paprika);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .result-section.hidden { display: none; }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .result-box {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .result-box .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .result-box .value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--paprika);
+    }
+    .result-box .sub { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+    .result-box .value.urgent { color: var(--red); }
+    .result-box .value.ok { color: var(--green); }
+    .result-box .value.warn { color: var(--amber); }
+
+    .deadline-banner {
+      background: var(--paprika);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .deadline-banner .dl-label { font-size: 0.85rem; opacity: 0.85; }
+    .deadline-banner .dl-date { font-size: 1.4rem; font-weight: 800; }
+    .deadline-banner .dl-days { font-size: 1.1rem; font-weight: 600; opacity: 0.9; }
+
+    .progress-section { margin-bottom: 20px; }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .progress-bar {
+      height: 14px;
+      background: #e5e7eb;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--paprika);
+      transition: width 0.5s ease;
+    }
+    .progress-fill.done { background: var(--green); }
+    .progress-fill.warn { background: var(--amber); }
+
+    .state-notes {
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: #f3f4f6;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .state-notes strong { color: var(--text); }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--paprika) 0%, var(--paprika-dark) 100%);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      color: var(--white);
+      margin: 32px 0;
+    }
+    .cta-box h2 { margin: 0 0 10px; font-size: 1.4rem; }
+    .cta-box p { margin: 0 0 18px; opacity: 0.9; font-size: 0.95rem; }
+    .btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--paprika);
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+    .faq-section { margin: 40px 0; }
+    .faq-section h2 { font-size: 1.5rem; margin-bottom: 20px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .faq-q { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
+    .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--paprika); transition: transform 0.2s; }
+    .faq-q.open::after { transform: rotate(45deg); }
+    .faq-a { font-size: 0.95rem; color: #374151; margin-top: 8px; display: none; }
+    .faq-a.open { display: block; }
+
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="https://cpe.paprika-labs.app" class="logo">📋 CPETrack</a>
+  <nav>
+    <a href="https://cpe.paprika-labs.app">Home</a>
+    <a href="https://cpe.paprika-labs.app/cpa-cpe-requirements-by-state.html">All States</a>
+    <a href="https://cpe.paprika-labs.app/cpe-deadline-calculator.html">Calculator</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <h1>CPA CPE Deadline Calculator</h1>
+    <p>Enter your state and hours completed. Get your deadline, days remaining, and weekly pace — all 51 states.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="calc-card">
+
+    <div class="form-group">
+      <label for="stateSelect">Your CPA License State</label>
+      <select id="stateSelect" onchange="onStateChange()">
+        <option value="">— Select your state —</option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="DC">Washington, D.C.</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
+    </div>
+
+    <!-- Birth month (AZ, CA) -->
+    <div class="form-group hidden" id="birthMonthGroup">
+      <label for="birthMonth">Your Birth Month <span style="color:var(--muted);font-weight:400">(used to calculate your personal deadline)</span></label>
+      <select id="birthMonth" onchange="calculate()">
+        <option value="">— Select birth month —</option>
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+      </select>
+    </div>
+
+    <!-- Nebraska birth year parity -->
+    <div class="form-group hidden" id="birthYearParityGroup">
+      <label for="birthYearParity">Your Birth Year</label>
+      <select id="birthYearParity" onchange="calculate()">
+        <option value="">— Select —</option>
+        <option value="even">Even year (1990, 1992, 1994…) → deadline Dec 31, 2026</option>
+        <option value="odd">Odd year (1991, 1993, 1995…) → deadline Dec 31, 2027</option>
+      </select>
+    </div>
+
+    <!-- License number parity (KS, KY, MA, OR, TN) -->
+    <div class="form-group hidden" id="licenseParityGroup">
+      <label for="licenseParity" id="licenseParityLabel">License Number Parity</label>
+      <select id="licenseParity" onchange="calculate()">
+        <option value="">— Select —</option>
+        <option value="even">Even number</option>
+        <option value="odd">Odd number</option>
+      </select>
+      <div class="state-notes" style="margin-top:8px" id="licenseParityHelp"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hoursCompleted">CPE Hours Completed This Period</label>
+        <input type="number" id="hoursCompleted" min="0" max="200" placeholder="0" oninput="calculate()" value="0">
+      </div>
+      <div class="form-group">
+        <label for="ethicsCompleted">Ethics Hours Completed</label>
+        <input type="number" id="ethicsCompleted" min="0" max="20" placeholder="0" oninput="calculate()" value="0">
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-section hidden" id="results">
+
+      <div class="deadline-banner">
+        <div>
+          <div class="dl-label">Your CPE Deadline</div>
+          <div class="dl-date" id="deadlineDate">—</div>
+          <div style="font-size:0.82rem;opacity:0.8;margin-top:2px" id="periodNote"></div>
+        </div>
+        <div class="dl-days" id="daysRemaining">— days left</div>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-label">
+          <span>CPE Progress</span>
+          <span id="progressLabel">0 / 40 hours</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressBar" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-box">
+          <div class="label">Hours Needed</div>
+          <div class="value" id="hoursNeeded">—</div>
+          <div class="sub" id="totalHoursLabel">of — required</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Ethics Needed</div>
+          <div class="value" id="ethicsNeeded">—</div>
+          <div class="sub" id="ethicsTotalLabel">of — required</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Weeks Remaining</div>
+          <div class="value" id="weeksRemaining">—</div>
+          <div class="sub">until deadline</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Weekly Pace</div>
+          <div class="value" id="weeklyPace">—</div>
+          <div class="sub">hrs/week needed</div>
+        </div>
+      </div>
+
+      <div class="state-notes" id="stateNotesText"></div>
+
+    </div><!-- /results -->
+
+    <div id="noDateNote" class="state-notes hidden" style="margin-top:20px">
+      ℹ️ Select your state above to see your CPE deadline and tracking details.
+    </div>
+
+  </div><!-- /calc-card -->
+
+  <div class="cta-box">
+    <h2>Never Miss a CPE Deadline Again</h2>
+    <p>CPETrack automatically tracks your hours, alerts you before deadlines, and generates state-specific compliance reports — free to start.</p>
+    <a href="https://cpe.paprika-labs.app/#signup" class="btn">Start Tracking Free →</a>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How many CPE hours do CPAs need per year?</div>
+      <div class="faq-a">Most annual-deadline states require 40 hours per year. High-hour states (Texas, Louisiana, Montana, North Dakota, New Mexico, Oklahoma, West Virginia, Wyoming) require 80–120 hours annually. Biennial states require 80 hours every two years; triennial states require 120 every three years. Use this calculator to see your state's exact requirement.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">When is the CPA CPE deadline?</div>
+      <div class="faq-a">The most common deadline is December 31. States using June 30 include Maine, Michigan, Massachusetts, Oregon, Kansas, Delaware, and Florida (for the applicable cycle year). Arizona and California use a birth-month deadline — the last day (CA) or last business day (AZ) of your birth month every two years. Use the calculator above to find your exact deadline.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How many ethics CPE hours are required?</div>
+      <div class="faq-a">Most states require 2–4 ethics hours per period. Outliers: Minnesota requires 8 hours; North Dakota requires 6; Rhode Island requires 6; Ohio requires 3 per triennial period. Georgia and South Dakota have no ethics hour requirement. Ethics courses must generally be approved by your state board.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is a biennial CPE cycle?</div>
+      <div class="faq-a">A biennial cycle means you complete CPE requirements over 2 years. Biennial states (Alaska, Arizona, California, Colorado, D.C., Delaware, Florida, Georgia, Hawaii, Kansas, Kentucky, Maryland, Massachusetts, Nebraska, Oregon, Pennsylvania, Tennessee, Utah, Vermont, Wisconsin) require 80 hours per 2-year period. The deadline year (odd vs. even) depends on the state — some stagger by license number or birth year.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is Idaho's rolling CPE requirement?</div>
+      <div class="faq-a">Idaho is unique: CPAs must complete 80 hours in any rolling 12-month period, not a fixed calendar cycle. This means your deadline is always 12 months from when your previous period started. It's the most flexible structure but requires careful tracking to ensure you're never behind.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I carry over CPE hours to the next period?</div>
+      <div class="faq-a">A few states allow carryover. Check your specific state's rules — the calculation above shows hours needed for your current period only. Carryover amounts and restrictions vary significantly by state and course type.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What happens if I miss the CPE deadline?</div>
+      <div class="faq-a">Missing your state's CPE deadline can result in license suspension or revocation, monetary fines ($500–$5,000+), a required reinstatement application, and potential public disclosure of the violation. Some states offer a grace period but still impose late fees. Always complete CPE before the deadline — don't rely on extensions.</div>
+    </div>
+
+  </div><!-- /faq -->
+
+</div><!-- /container -->
+
+<footer>
+  <p>
+    <a href="https://cpe.paprika-labs.app">CPETrack</a> — CPA CPE Tracking for All 51 States
+    &nbsp;·&nbsp;
+    <a href="https://cpe.paprika-labs.app/cpa-cpe-requirements-by-state.html">State Requirements</a>
+    &nbsp;·&nbsp;
+    <a href="https://cpe.paprika-labs.app/cpe-deadline-calculator.html">Deadline Calculator</a>
+  </p>
+  <p style="margin-top:8px;font-size:0.8rem">
+    Data reflects requirements as of 2026. Always verify with your state board for the most current rules.
+  </p>
+</footer>
+
+<script>
+const STATES = [{"code":"AL","name":"Alabama","type":"annual","date":"September 30","year_rule":null,"total":40,"ethics":2,"notes":"Annual"},{"code":"AK","name":"Alaska","type":"biennial","date":"December 31","year_rule":"odd","total":80,"ethics":4,"notes":"Biennial, odd years"},{"code":"AR","name":"Arkansas","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":4,"notes":"Annual"},{"code":"AZ","name":"Arizona","type":"biennial_birth","date":null,"year_rule":null,"total":80,"ethics":4,"notes":"Biennial, last business day of birth month"},{"code":"CA","name":"California","type":"biennial_birth","date":null,"year_rule":null,"total":80,"ethics":4,"notes":"Biennial, last day of birth month"},{"code":"CO","name":"Colorado","type":"biennial","date":"December 31","year_rule":"even","total":80,"ethics":4,"notes":"Biennial, even years"},{"code":"CT","name":"Connecticut","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":4,"notes":"Annual"},{"code":"DC","name":"Washington, D.C.","type":"biennial","date":"December 31","year_rule":"even","total":80,"ethics":4,"notes":"Biennial, even years"},{"code":"DE","name":"Delaware","type":"biennial","date":"June 30","year_rule":"odd","total":80,"ethics":4,"notes":"Biennial, odd years"},{"code":"FL","name":"Florida","type":"biennial","date":"June 30","year_rule":"even","total":80,"ethics":4,"notes":"Biennial, even years"},{"code":"GA","name":"Georgia","type":"biennial","date":"December 31","year_rule":"odd","total":80,"ethics":4,"notes":"Biennial, odd years"},{"code":"HI","name":"Hawaii","type":"biennial","date":"December 31","year_rule":"odd","total":80,"ethics":4,"notes":"Biennial, odd years"},{"code":"IA","name":"Iowa","type":"triennial","date":"June 30","year_rule":null,"total":120,"ethics":4,"notes":"Triennial"},{"code":"ID","name":"Idaho","type":"rolling","date":null,"year_rule":null,"total":80,"ethics":4,"notes":"Rolling 12-month"},{"code":"IL","name":"Illinois","type":"triennial","date":"September 30","year_rule":null,"total":120,"ethics":4,"notes":"Triennial"},{"code":"IN","name":"Indiana","type":"triennial","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Triennial"},{"code":"KS","name":"Kansas","type":"biennial_license","date":"June 30","year_rule":null,"total":80,"ethics":2,"notes":"Biennial — even cert# = even years; odd cert# = odd years"},{"code":"KY","name":"Kentucky","type":"biennial_license","date":"December 31","year_rule":null,"total":80,"ethics":2,"notes":"Biennial — odd license# = 2025-2026; even license# = 2026-2027"},{"code":"LA","name":"Louisiana","type":"annual","date":"December 31","year_rule":null,"total":80,"ethics":3,"notes":"Annual, 80 hours"},{"code":"MA","name":"Massachusetts","type":"biennial_license","date":"June 30","year_rule":null,"total":80,"ethics":4,"notes":"Biennial — even license# = even years; odd license# = odd years"},{"code":"MD","name":"Maryland","type":"biennial","date":"December 31","year_rule":"even","total":80,"ethics":4,"notes":"Biennial, even years"},{"code":"ME","name":"Maine","type":"annual","date":"June 30","year_rule":null,"total":40,"ethics":4,"notes":"Annual"},{"code":"MI","name":"Michigan","type":"annual","date":"June 30","year_rule":null,"total":40,"ethics":2,"notes":"Annual"},{"code":"MN","name":"Minnesota","type":"triennial","date":"June 30","year_rule":null,"total":120,"ethics":8,"notes":"Triennial"},{"code":"MO","name":"Missouri","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":2,"notes":"Annual"},{"code":"MS","name":"Mississippi","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":4,"notes":"Annual"},{"code":"MT","name":"Montana","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":2,"notes":"Annual, 120 hours"},{"code":"NC","name":"North Carolina","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":2,"notes":"Annual"},{"code":"ND","name":"North Dakota","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":6,"notes":"Annual, 120 hours"},{"code":"NE","name":"Nebraska","type":"biennial_birth","date":"December 31","year_rule":null,"total":80,"ethics":4,"notes":"Biennial — even birth year = 2026; odd birth year = 2027"},{"code":"NH","name":"New Hampshire","type":"triennial","date":"June 30","year_rule":null,"total":120,"ethics":4,"notes":"Triennial"},{"code":"NJ","name":"New Jersey","type":"triennial","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Triennial"},{"code":"NM","name":"New Mexico","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Annual, 120 hours"},{"code":"NV","name":"Nevada","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":2,"notes":"Annual"},{"code":"NY","name":"New York","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":4,"notes":"Annual"},{"code":"OH","name":"Ohio","type":"triennial","date":"December 31","year_rule":null,"total":120,"ethics":3,"notes":"Triennial"},{"code":"OK","name":"Oklahoma","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Annual, 120 hours"},{"code":"OR","name":"Oregon","type":"biennial_license","date":"June 30","year_rule":null,"total":80,"ethics":4,"notes":"Biennial — even permit# = even years; odd permit# = odd years"},{"code":"PA","name":"Pennsylvania","type":"biennial","date":"December 31","year_rule":"odd","total":80,"ethics":4,"notes":"Biennial, odd years"},{"code":"RI","name":"Rhode Island","type":"triennial","date":"June 30","year_rule":null,"total":120,"ethics":6,"notes":"Triennial"},{"code":"SC","name":"South Carolina","type":"annual","date":"December 31","year_rule":null,"total":40,"ethics":2,"notes":"Annual"},{"code":"SD","name":"South Dakota","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":0,"notes":"Annual, 120 hours"},{"code":"TN","name":"Tennessee","type":"biennial_license","date":"December 31","year_rule":null,"total":80,"ethics":2,"notes":"Biennial — even license# = even years; odd license# = odd years"},{"code":"TX","name":"Texas","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Annual, 120 hours"},{"code":"UT","name":"Utah","type":"biennial","date":"December 31","year_rule":"even","total":80,"ethics":4,"notes":"Biennial, even years"},{"code":"VA","name":"Virginia","type":"triennial","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Triennial"},{"code":"VT","name":"Vermont","type":"biennial","date":"July 31","year_rule":"odd","total":80,"ethics":4,"notes":"Biennial, odd years"},{"code":"WA","name":"Washington","type":"triennial","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Triennial"},{"code":"WI","name":"Wisconsin","type":"biennial_fixed","date":"December 14","year_rule":"odd","total":80,"ethics":3,"notes":"Biennial, Dec 14 odd years (next: Dec 14, 2027)"},{"code":"WV","name":"West Virginia","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Annual, 120 hours"},{"code":"WY","name":"Wyoming","type":"annual","date":"December 31","year_rule":null,"total":120,"ethics":4,"notes":"Annual, 120 hours"}];
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const TODAY = new Date(2026, 6, 4); // July 4, 2026
+
+function getState(code) {
+  return STATES.find(s => s.code === code);
+}
+
+function parseMonthDay(dateStr) {
+  // Returns { month: 0-11, day: 1-31 } for "Month Day" format
+  const parts = dateStr.split(' ');
+  const m = MONTHS.indexOf(parts[0]);
+  const d = parseInt(parts[1]);
+  return { month: m, day: d };
+}
+
+function nextOccurrence(month, day, yearConstraint) {
+  // yearConstraint: null (any year), 'odd', 'even'
+  const thisYear = TODAY.getFullYear();
+  for (let y = thisYear; y <= thisYear + 3; y++) {
+    if (yearConstraint === 'odd' && y % 2 === 0) continue;
+    if (yearConstraint === 'even' && y % 2 !== 0) continue;
+    const d = new Date(y, month, day);
+    if (d >= TODAY) return d;
+  }
+  return null;
+}
+
+function calculateDeadline(state, birthMonth, licenseParityVal, birthYearParity) {
+  const today = TODAY;
+
+  if (state.type === 'rolling') {
+    // Idaho: rolling 12-month; deadline = today + 12 months
+    const d = new Date(today);
+    d.setFullYear(d.getFullYear() + 1);
+    return { date: d, periodNote: "Rolling 12-month window from license renewal date" };
+  }
+
+  if (state.type === 'biennial_birth' || (state.type === 'biennial_birth' && state.code === 'NE')) {
+    // AZ, CA: deadline is last day of birth month, biennial
+    if (birthMonth === '' || birthMonth === undefined || birthMonth === null) return null;
+    const bm = parseInt(birthMonth);
+    // Find last day of birth month for this year and next year
+    for (let y = today.getFullYear(); y <= today.getFullYear() + 2; y++) {
+      // Last day of month: day 0 of next month
+      const lastDay = new Date(y, bm + 1, 0);
+      if (lastDay >= today) return { date: lastDay, periodNote: "Biennial — last day of birth month" };
+    }
+    return null;
+  }
+
+  if (state.code === 'NE') {
+    // Nebraska: birth year parity
+    if (!birthYearParity) return null;
+    const deadlineYear = birthYearParity === 'even' ? 2026 : 2027;
+    const d = new Date(deadlineYear, 11, 31);
+    return { date: d, periodNote: "Biennial — deadline year based on birth year" };
+  }
+
+  if (state.type === 'biennial_license' || state.type === 'biennial_fixed') {
+    // KS, KY, MA, OR, TN: license number parity determines year
+    // WI: biennial_fixed Dec 14, odd years
+    if (state.code === 'WI') {
+      const d = nextOccurrence(11, 14, 'odd');
+      return { date: d, periodNote: "Biennial ending December 14, odd years (next: 2027)" };
+    }
+    if (!licenseParityVal) return null;
+    const md = parseMonthDay(state.date);
+    let yearConstraint = null;
+    // Determine which year type maps to this parity
+    if (state.code === 'KS') yearConstraint = licenseParityVal; // even cert# = even year; odd = odd
+    else if (state.code === 'KY') yearConstraint = licenseParityVal === 'odd' ? 'even' : 'odd'; // odd license# → 2025-2026 period (even year deadline)
+    else if (state.code === 'MA') yearConstraint = licenseParityVal;
+    else if (state.code === 'OR') yearConstraint = licenseParityVal;
+    else if (state.code === 'TN') yearConstraint = licenseParityVal;
+    else yearConstraint = licenseParityVal;
+    const d = nextOccurrence(md.month, md.day, yearConstraint);
+    return { date: d, periodNote: state.notes };
+  }
+
+  // Standard types: annual, biennial, triennial with explicit date + year_rule
+  const md = parseMonthDay(state.date);
+  const d = nextOccurrence(md.month, md.day, state.year_rule);
+  const periodMap = { annual: "Annual", biennial: "Biennial (2-year cycle)", triennial: "Triennial (3-year cycle)" };
+  return { date: d, periodNote: periodMap[state.type] || state.notes };
+}
+
+function daysUntil(date) {
+  const msPerDay = 1000 * 60 * 60 * 24;
+  return Math.ceil((date - TODAY) / msPerDay);
+}
+
+function urgencyClass(days) {
+  if (days < 0) return 'urgent';
+  if (days < 60) return 'urgent';
+  if (days < 120) return 'warn';
+  return 'ok';
+}
+
+function onStateChange() {
+  const code = document.getElementById('stateSelect').value;
+  const state = code ? getState(code) : null;
+
+  // Show/hide conditional inputs
+  document.getElementById('birthMonthGroup').classList.toggle('hidden',
+    !state || (state.type !== 'biennial_birth' || state.code === 'NE'));
+  document.getElementById('birthYearParityGroup').classList.toggle('hidden',
+    !state || state.code !== 'NE');
+  document.getElementById('licenseParityGroup').classList.toggle('hidden',
+    !state || state.type !== 'biennial_license' || state.code === 'WI');
+
+  if (state && state.type === 'biennial_license' && state.code !== 'WI') {
+    const helpTexts = {
+      KS: 'Even certificate number → deadline June 30 of even years; Odd → odd years',
+      KY: 'Odd license number → deadline Dec 31, 2026; Even → Dec 31, 2027',
+      MA: 'Even license number → deadline June 30 of even years; Odd → odd years',
+      OR: 'Even permit number → deadline June 30 of even years; Odd → odd years',
+      TN: 'Even license number → deadline Dec 31 of even years; Odd → odd years',
+    };
+    document.getElementById('licenseParityHelp').textContent = helpTexts[code] || '';
+  }
+
+  calculate();
+}
+
+function calculate() {
+  const code = document.getElementById('stateSelect').value;
+  if (!code) {
+    document.getElementById('results').classList.add('hidden');
+    return;
+  }
+  const state = getState(code);
+  const birthMonth = document.getElementById('birthMonth').value;
+  const birthYearParity = document.getElementById('birthYearParity').value;
+  const licenseParity = document.getElementById('licenseParity').value;
+  const hoursCompleted = parseInt(document.getElementById('hoursCompleted').value) || 0;
+  const ethicsCompleted = parseInt(document.getElementById('ethicsCompleted').value) || 0;
+
+  const result = calculateDeadline(state, birthMonth, licenseParity, birthYearParity);
+
+  if (!result) {
+    document.getElementById('results').classList.add('hidden');
+    return;
+  }
+
+  const { date, periodNote } = result;
+  const days = daysUntil(date);
+  const weeks = Math.ceil(days / 7);
+
+  document.getElementById('results').classList.remove('hidden');
+  document.getElementById('deadlineDate').textContent = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  document.getElementById('periodNote').textContent = periodNote;
+  document.getElementById('daysRemaining').textContent = days < 0 ? 'Deadline passed' : days + ' days left';
+
+  const total = state.total;
+  const ethics = state.ethics || 0;
+  const hoursNeeded = Math.max(0, total - hoursCompleted);
+  const ethicsNeeded = Math.max(0, ethics - ethicsCompleted);
+
+  // Progress bar
+  const pct = Math.min(100, (hoursCompleted / total) * 100);
+  const bar = document.getElementById('progressBar');
+  bar.style.width = pct + '%';
+  bar.className = 'progress-fill' + (pct >= 100 ? ' done' : pct < 30 ? '' : ' warn');
+  document.getElementById('progressLabel').textContent = hoursCompleted + ' / ' + total + ' hours';
+
+  // Result boxes
+  const urgClass = urgencyClass(days);
+  document.getElementById('hoursNeeded').textContent = hoursNeeded;
+  document.getElementById('hoursNeeded').className = 'value ' + (hoursNeeded === 0 ? 'ok' : urgClass);
+  document.getElementById('totalHoursLabel').textContent = 'of ' + total + ' required';
+
+  document.getElementById('ethicsNeeded').textContent = ethics > 0 ? ethicsNeeded : '—';
+  document.getElementById('ethicsNeeded').className = 'value ' + (ethicsNeeded === 0 ? 'ok' : urgClass);
+  document.getElementById('ethicsTotalLabel').textContent = ethics > 0 ? 'of ' + ethics + ' required' : 'no requirement';
+
+  document.getElementById('weeksRemaining').textContent = days < 0 ? '0' : weeks;
+  document.getElementById('weeksRemaining').className = 'value ' + urgencyClass(days);
+
+  const pace = weeks > 0 ? (hoursNeeded / weeks).toFixed(1) : '—';
+  document.getElementById('weeklyPace').textContent = hoursNeeded === 0 ? '✓' : pace;
+  document.getElementById('weeklyPace').className = 'value ' + (hoursNeeded === 0 ? 'ok' : urgencyClass(days));
+
+  // State notes
+  let notesHtml = '<strong>' + state.name + ' CPE Requirements:</strong> ';
+  notesHtml += total + ' total hours';
+  if (ethics > 0) notesHtml += ', ' + ethics + ' ethics hours required';
+  notesHtml += '. ' + (state.notes || '');
+  notesHtml += ' <a href="https://cpe.paprika-labs.app/' + state.code.toLowerCase() + '-cpa-cpe-requirements.html" style="color:var(--paprika)">Full ' + state.name + ' CPE requirements →</a>';
+  document.getElementById('stateNotesText').innerHTML = notesHtml;
+}
+
+function toggleFaq(el) {
+  el.classList.toggle('open');
+  const answer = el.nextElementSibling;
+  answer.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
