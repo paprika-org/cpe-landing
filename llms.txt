@@ -68,6 +68,11 @@ December 31 is the most common CPA CPE deadline in the US. These states have Dec
 - A&A (Accounting & Auditing) CPE is required for CPAs performing attest services in most states
 - The NASBA CPE Audit Service is required in 15 states: FL, Guam, KY, MD, MO, MT, NC, OH, OR, Puerto Rico, SC, TN, UT, VA, Virgin Islands
 
+## GitHub Resources
+
+- [awesome-cpa-resources](https://github.com/paprika-org/awesome-cpa-resources): Curated list of CPA tools, datasets, CPE trackers, NASBA resources, state board links, and professional guides. Maintained by Paprika Labs.
+- [cpa-cpe-data](https://github.com/paprika-org/cpa-cpe-data): Open dataset of CPE requirements for all 51 US jurisdictions (JSON/CSV, CC0 public domain). 15 structured fields per state: deadline, hours, ethics, A&A, self-study caps, carryover, NASBA membership.
+
 ## About
 
 CPETrack is built by Paprika Labs (paprika-labs.app). The underlying state requirement data is open-source at github.com/paprika-org/cpa-cpe-data (CC0 public domain, 51 states, 15 structured fields per state).
