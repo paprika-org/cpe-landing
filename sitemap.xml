@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cpe.paprika-labs.app/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/alabama-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cpe.paprika-labs.app/arkansas-cpa-cpe-requirements-december-31.html</loc>
@@ -25,8 +31,32 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://cpe.paprika-labs.app/california-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cpe.paprika-labs.app/co-cpa-cpe-requirements-december-31.html</loc>
     <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/comparison-tool.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/connecticut-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/cpe-deadline-calculator.html</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -38,9 +68,15 @@
   </url>
   <url>
     <loc>https://cpe.paprika-labs.app/cpe-requirements-by-state.html</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/cpe-tracker-comparison.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cpe.paprika-labs.app/december-2026-cpe-deadline.html</loc>
@@ -50,15 +86,27 @@
   </url>
   <url>
     <loc>https://cpe.paprika-labs.app/december-31-cpe-deadlines.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/delaware-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cpe.paprika-labs.app/florida-cpa-cpe-requirements-june-30.html</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/free-cpe-tracker.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cpe.paprika-labs.app/georgia-cpa-cpe-requirements-december-31.html</loc>
@@ -115,14 +163,38 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cpe.paprika-labs.app/maine-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cpe.paprika-labs.app/maryland-cpa-cpe-requirements-december-31.html</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cpe.paprika-labs.app/massachusetts-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/michigan-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cpe.paprika-labs.app/minnesota-cpa-cpe-requirements.html</loc>
     <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/mississippi-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -137,6 +209,12 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/nasba-cpe-audit-service.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cpe.paprika-labs.app/nc-cpa-cpe-requirements-december-31.html</loc>
@@ -157,8 +235,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cpe.paprika-labs.app/new-hampshire-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/new-mexico-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cpe.paprika-labs.app/nj-cpa-cpe-requirements-december-31.html</loc>
     <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/north-dakota-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -175,14 +271,38 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cpe.paprika-labs.app/oklahoma-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/oregon-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cpe.paprika-labs.app/pennsylvania-cpa-cpe-requirements-december-31.html</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cpe.paprika-labs.app/rhode-island-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cpe.paprika-labs.app/sc-cpa-cpe-requirements-december-31.html</loc>
     <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/south-dakota-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -211,8 +331,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cpe.paprika-labs.app/vermont-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cpe.paprika-labs.app/wa-cpa-cpe-requirements-december-31.html</loc>
     <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cpe.paprika-labs.app/washington-dc-cpa-cpe-requirements.html</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -233,10 +365,5 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cpe.paprika-labs.app/cpe-deadline-calculator.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
 </urlset>
