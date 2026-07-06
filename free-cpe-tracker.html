@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free CPE Tracker for CPAs — Any Provider, All 50 States | CPETrack</title>
+  <meta name="description" content="CPETrack is a free CPE tracker for CPAs that works with any CPE provider — NASBA, Becker, Surgent, MyCPE, state societies. Covers all 51 states. No subscription required. Compare vs spreadsheet and MYCPE ONE.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cpe.paprika-labs.app/free-cpe-tracker.html">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is CPETrack really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CPETrack is completely free — no subscription, no credit card, no premium tier. You can track all your CPE credits, set deadline alerts, and view your state's requirements at no cost. We plan to keep the core tracker free permanently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CPETrack work with any CPE provider?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CPETrack is provider-agnostic, meaning you can log credits from any approved CPE provider: NASBA sponsors, AICPA, state CPA society courses, Becker, Surgent, Illumeo, MyCPE, self-study, webinars, or in-house training. There is no restriction to specific providers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I track CPE credits from multiple providers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Log each CPE credit individually with the provider name, date, subject, and hours. CPETrack automatically totals your credits by category (A&A, ethics, technical, other) and compares them against your state's requirements. You can mix and match credits from any number of providers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between CPETrack and a spreadsheet for CPE tracking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A spreadsheet requires manual math, manual deadline tracking, and manual research of state requirements. CPETrack automatically calculates your totals, alerts you when deadlines approach, and pre-loads your state's specific rules (ethics hours, A&A requirements, self-study caps, carryover limits). The main advantage: when your state's rules change, CPETrack updates automatically — your spreadsheet doesn't."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does CPETrack compare to MYCPE ONE's certificate vault?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MYCPE ONE's certificate vault is a $199/year subscription designed primarily for CPAs who take courses through the MYCPE ONE platform. CPETrack is free and provider-agnostic — it works whether your CPE comes from MYCPE ONE, Becker, your state society, in-house training, or any other approved source. If you use multiple providers, CPETrack is the more practical choice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which states' CPE requirements does CPETrack cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CPETrack covers all 50 U.S. states plus Washington D.C. — all 51 CPA licensing jurisdictions. This includes states with annual deadlines (e.g., New York, Louisiana), biennial deadlines (e.g., California, Texas), triennial periods (e.g., Ohio, New Jersey), and birth-month rolling deadlines (e.g., Texas, Oklahoma)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I track ethics CPE separately?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CPETrack tracks ethics credits separately from general CPE, which is essential because most states have minimum ethics hour requirements (typically 2-4 hours per cycle) and some require state-specific ethics courses (Florida, Tennessee, Wyoming, and others). The tracker flags whether you've met your state's ethics requirement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CPETrack track A&A (Audit and Attest) CPE requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. States like Alabama (8 hours, all CPAs), Georgia (16 hours, all CPAs), and Delaware (8 hours, all CPAs) require audit and attestation credits for all licensees. CPETrack tracks A&A credits separately and alerts you if you're an attest CPA in a state with an A&A minimum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does CPETrack handle self-study caps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some states cap self-study hours — for example, Virginia (50% cap), Arkansas (80% cap), or Vermont (80% combined self-study/online cap). CPETrack tracks your self-study hours separately and warns you when you're approaching your state's cap so you can plan live or group learning accordingly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I carry over unused CPE hours to the next cycle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Carryover rules vary by state: Maryland allows up to 80 hours carried forward, New Hampshire allows 60 hours, and some states prohibit carryover entirely. CPETrack knows your state's carryover rules and accounts for carried-forward hours in your progress totals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to create an account to use CPETrack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can explore CPETrack's state requirement guides without an account. To save your CPE log and receive deadline reminders, a free account is required so your data persists between sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CPETrack approved by NASBA or state CPA boards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CPETrack is a tracking tool, not a CPE provider, so it doesn't require NASBA approval. NASBA approval applies to providers who offer CPE courses. CPETrack simply helps you record and organize CPE credits from any NASBA-approved provider you choose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I miss my CPE deadline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Consequences vary by state but typically include late fees ($50-$500), license suspension, or reinstatement requirements. CPETrack sends deadline alerts well in advance so you have time to complete remaining hours. If you've already missed a deadline, some states allow grace periods — check your state's board website for reinstatement procedures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use CPETrack if I'm licensed in multiple states?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Many CPAs hold licenses in two or more states (common for border-state practices or firms with multi-state offices). CPETrack lets you set up tracking for multiple state requirements simultaneously and compares your credit totals against each state's rules independently."
+      }
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Free CPE Tracker for CPAs — Works With Any Provider, All 50 States",
+  "description": "CPETrack is a free, provider-agnostic CPE tracker for CPAs. Compare it to spreadsheets and MYCPE ONE's $199/yr vault. Covers all 51 CPA licensing jurisdictions.",
+  "datePublished": "2026-07-06",
+  "dateModified": "2026-07-06",
+  "author": {
+    "@type": "Organization",
+    "name": "CPETrack by Paprika Labs"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CPETrack",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cpe.paprika-labs.app/favicon.ico"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cpe.paprika-labs.app/free-cpe-tracker.html"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CPETrack",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free CPE tracker for CPAs. Provider-agnostic — works with NASBA, AICPA, Becker, Surgent, MyCPE, state societies, and any approved provider. Covers all 51 U.S. CPA licensing jurisdictions.",
+  "url": "https://cpe.paprika-labs.app/free-cpe-tracker.html",
+  "featureList": [
+    "Free forever, no subscription",
+    "Provider-agnostic — any CPE source",
+    "All 50 states + DC",
+    "Deadline alerts",
+    "Ethics CPE tracking",
+    "A&A credit tracking",
+    "Self-study cap warnings",
+    "Carryover credit support",
+    "Multi-state license tracking"
+  ]
+}</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.65;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Nav */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e4df;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    nav .brand { font-weight: 700; font-size: 1.1rem; color: #1a1a1a; text-decoration: none; }
+    nav .brand span { color: #c0392b; }
+    nav a { font-size: 0.85rem; color: #555; }
+    nav a:hover { color: #c0392b; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #2c1810 0%, #8b1a1a 60%, #c0392b 100%);
+      color: #fff;
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .hero .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #fff;
+      color: #c0392b;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); text-decoration: none; }
+
+    /* Trust bar */
+    .trust-bar {
+      background: #fff;
+      border-bottom: 1px solid #e8e4df;
+      padding: 16px 24px;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .trust-item { font-size: 0.88rem; color: #555; display: flex; align-items: center; gap: 6px; }
+    .trust-item .check { color: #27ae60; font-weight: 700; }
+
+    /* Main layout */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* Comparison section */
+    .section { padding: 56px 0; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; }
+    .section-header p { color: #555; font-size: 1rem; max-width: 620px; margin: 0 auto; }
+
+    /* Comparison table */
+    .comparison-table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    table.comparison {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 0.9rem;
+    }
+    table.comparison th {
+      padding: 14px 18px;
+      text-align: left;
+      background: #f5f3ef;
+      font-weight: 700;
+      border-bottom: 2px solid #e0dbd4;
+    }
+    table.comparison th.highlight {
+      background: #c0392b;
+      color: #fff;
+    }
+    table.comparison td {
+      padding: 12px 18px;
+      border-bottom: 1px solid #f0ece7;
+      vertical-align: top;
+    }
+    table.comparison tr:last-child td { border-bottom: none; }
+    table.comparison .yes { color: #27ae60; font-weight: 700; }
+    table.comparison .no { color: #c0392b; font-weight: 700; }
+    table.comparison .partial { color: #e67e22; font-weight: 600; }
+    table.comparison td.highlight { background: #fff8f8; }
+    .price-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .price-free { background: #d4edda; color: #155724; }
+    .price-paid { background: #f8d7da; color: #721c24; }
+
+    /* Feature cards */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #e8e4df;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .feature-card .icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.88rem; color: #555; }
+
+    /* Why free section */
+    .why-box {
+      background: #fff8f0;
+      border: 1px solid #f0d9a0;
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .why-box h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    .why-box p { font-size: 0.92rem; color: #444; }
+
+    /* Provider list */
+    .provider-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+    .provider-chip {
+      background: #fff;
+      border: 1px solid #e0dbd4;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.88rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .provider-chip::before { content: "✓"; color: #27ae60; font-weight: 700; }
+
+    /* State coverage */
+    .state-coverage-note {
+      background: #f0f9ff;
+      border: 1px solid #bee3f8;
+      border-radius: 8px;
+      padding: 20px 24px;
+      font-size: 0.92rem;
+      color: #1a4a6b;
+    }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 20px; }
+    .faq-item {
+      background: #fff;
+      border: 1px solid #e8e4df;
+      border-radius: 10px;
+      padding: 22px 24px;
+    }
+    .faq-q {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    .faq-a { font-size: 0.9rem; color: #444; line-height: 1.6; }
+
+    /* CTA section */
+    .cta-section {
+      background: linear-gradient(135deg, #2c1810 0%, #8b1a1a 100%);
+      color: #fff;
+      padding: 56px 24px;
+      text-align: center;
+      border-radius: 16px;
+      margin: 40px 0;
+    }
+    .cta-section h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { opacity: 0.88; margin-bottom: 28px; }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: #888;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+    footer a { color: #aaa; }
+
+    @media (max-width: 600px) {
+      .trust-bar { gap: 16px; }
+      .section { padding: 40px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="https://cpe.paprika-labs.app/" class="brand">CPE<span>Track</span></a>
+  <a href="https://cpe.paprika-labs.app/">Home</a>
+  <a href="https://cpe.paprika-labs.app/comparison-tool.html">Compare States</a>
+  <a href="https://cpe.paprika-labs.app/cpe-tracker-comparison.html">Tool Comparison</a>
+  <a href="https://cpe.paprika-labs.app/calculator.html">Calculator</a>
+  <a href="https://cpe.paprika-labs.app/free-cpe-tracker.html" style="color:#c0392b;font-weight:700;">Free Tracker</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">Free · No Subscription · Any Provider</div>
+  <h1>The Free CPE Tracker for CPAs That Works With Any Provider</h1>
+  <p>Track continuing education credits from Becker, Surgent, MyCPE, NASBA, your state society, or any other approved source — all in one place, free forever.</p>
+  <div class="cta-row">
+    <a href="https://cpe.paprika-labs.app/#signup" class="btn-primary">Start Tracking Free →</a>
+    <a href="#compare" class="btn-secondary">See How It Compares</a>
+  </div>
+</div>
+
+<!-- Trust bar -->
+<div class="trust-bar">
+  <span class="trust-item"><span class="check">✓</span> Free forever</span>
+  <span class="trust-item"><span class="check">✓</span> Any CPE provider</span>
+  <span class="trust-item"><span class="check">✓</span> All 51 jurisdictions</span>
+  <span class="trust-item"><span class="check">✓</span> Deadline alerts</span>
+  <span class="trust-item"><span class="check">✓</span> Ethics &amp; A&amp;A tracking</span>
+  <span class="trust-item"><span class="check">✓</span> Multi-state support</span>
+</div>
+
+<!-- Main content -->
+<div class="container">
+
+  <!-- Comparison section -->
+  <section class="section" id="compare">
+    <div class="section-header">
+      <h2>Free CPE Tracker Comparison: CPETrack vs. Spreadsheet vs. MYCPE ONE</h2>
+      <p>The three most common options for tracking CPA continuing education credits — and how they stack up.</p>
+    </div>
+
+    <div class="comparison-table-wrap">
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="highlight">CPETrack <span class="price-badge price-free">FREE</span></th>
+            <th>Spreadsheet (DIY) <span class="price-badge price-free">FREE</span></th>
+            <th>MYCPE ONE Vault <span class="price-badge price-paid">$199/yr</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cost</td>
+            <td class="highlight"><strong>$0 — always free</strong></td>
+            <td>$0 (your time)</td>
+            <td>$199/year subscription</td>
+          </tr>
+          <tr>
+            <td>Works with any CPE provider</td>
+            <td class="highlight"><span class="yes">Yes</span> — any NASBA-approved source</td>
+            <td><span class="partial">Manual</span> — you enter it yourself</td>
+            <td><span class="no">No</span> — primarily MYCPE ONE courses</td>
+          </tr>
+          <tr>
+            <td>State CPE requirements built in</td>
+            <td class="highlight"><span class="yes">Yes</span> — all 51 jurisdictions, auto-updated</td>
+            <td><span class="no">No</span> — you research rules yourself</td>
+            <td><span class="partial">Partial</span> — certificate storage only</td>
+          </tr>
+          <tr>
+            <td>Deadline alerts</td>
+            <td class="highlight"><span class="yes">Yes</span> — email reminders</td>
+            <td><span class="no">No</span> — manual calendar entries</td>
+            <td><span class="partial">Basic</span> — MYCPE ONE courses only</td>
+          </tr>
+          <tr>
+            <td>Ethics CPE tracking</td>
+            <td class="highlight"><span class="yes">Yes</span> — separate from general CPE</td>
+            <td><span class="partial">Manual</span> — custom column required</td>
+            <td><span class="partial">Basic</span></td>
+          </tr>
+          <tr>
+            <td>A&amp;A / audit credit tracking</td>
+            <td class="highlight"><span class="yes">Yes</span> — state-specific A&amp;A rules applied</td>
+            <td><span class="partial">Manual</span></td>
+            <td><span class="no">No</span></td>
+          </tr>
+          <tr>
+            <td>Self-study cap warnings</td>
+            <td class="highlight"><span class="yes">Yes</span> — e.g., VA 50%, AR 80%, VT 80%</td>
+            <td><span class="no">No</span></td>
+            <td><span class="no">No</span></td>
+          </tr>
+          <tr>
+            <td>Carryover credit support</td>
+            <td class="highlight"><span class="yes">Yes</span> — per-state rules (MD 80hr, NH 60hr…)</td>
+            <td><span class="partial">Manual</span></td>
+            <td><span class="no">No</span></td>
+          </tr>
+          <tr>
+            <td>Multi-state license tracking</td>
+            <td class="highlight"><span class="yes">Yes</span> — track multiple states simultaneously</td>
+            <td><span class="partial">Manual</span> — separate tabs required</td>
+            <td><span class="no">No</span></td>
+          </tr>
+          <tr>
+            <td>Auto-updates when state rules change</td>
+            <td class="highlight"><span class="yes">Yes</span></td>
+            <td><span class="no">No</span> — you find out yourself</td>
+            <td><span class="no">No</span></td>
+          </tr>
+          <tr>
+            <td>Certificate storage</td>
+            <td class="highlight"><span class="yes">Yes</span> — attach completion certificates</td>
+            <td><span class="partial">External folder</span></td>
+            <td><span class="yes">Yes</span> — core feature</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Features section -->
+  <section class="section">
+    <div class="section-header">
+      <h2>What CPETrack Does That Your Spreadsheet Can't</h2>
+      <p>Spreadsheets work until your state changes its rules, you miss a deadline, or you hold licenses in two states. CPETrack handles all of it automatically.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <h3>State Rules Built In</h3>
+        <p>Every state's requirements are pre-loaded: total hours, ethics minimums, A&A mandates, self-study caps, carryover limits, and deadlines. No research required.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⏰</div>
+        <h3>Deadline Alerts That Find You</h3>
+        <p>Set it and forget it. CPETrack sends email reminders 60, 30, and 7 days before your deadline — whether that's December 31, June 30, or your birth month.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🧮</div>
+        <h3>Automatic Credit Math</h3>
+        <p>Log a credit once. CPETrack automatically buckets it into general, ethics, A&A, or technical categories and recalculates your totals and gaps instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏛️</div>
+        <h3>All 51 Jurisdictions</h3>
+        <p>From Montana's unusual 120-hour annual requirement to South Dakota's no-ethics mandate to Georgia's 16-hour A&A rule — every state's quirks are built in.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔗</div>
+        <h3>Any Provider, Any Format</h3>
+        <p>NASBA QAS self-study, live webinars, in-house training, firm meetings, university courses — if your state board accepts it, CPETrack tracks it.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🗺️</div>
+        <h3>Multi-State for Dual Licensees</h3>
+        <p>Hold licenses in New York and New Jersey? Or Texas and Colorado? CPETrack tracks requirements for each state independently and shows you the combined picture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why free section -->
+  <section class="section">
+    <div class="why-box">
+      <h3>Why Is CPETrack Free?</h3>
+      <p>CPETrack is built by Paprika Labs, an independent software team. We believe that tracking your own professional education shouldn't cost $200 a year. The core tracker — logging credits, calculating state requirements, deadline alerts — is and will remain free. We sustain development through optional premium features for firms managing CPE for multiple CPAs. Individual CPAs will never be charged for the core tracker.</p>
+    </div>
+  </section>
+
+  <!-- Provider compatibility section -->
+  <section class="section">
+    <div class="section-header">
+      <h2>CPE Providers CPETrack Works With</h2>
+      <p>CPETrack is provider-agnostic. Log credits from any NASBA-approved source. Here are the providers our users track most frequently:</p>
+    </div>
+
+    <div class="provider-grid">
+      <div class="provider-chip">NASBA Registry</div>
+      <div class="provider-chip">AICPA</div>
+      <div class="provider-chip">Becker CPE</div>
+      <div class="provider-chip">Surgent CPE</div>
+      <div class="provider-chip">MyCPE ONE</div>
+      <div class="provider-chip">Illumeo</div>
+      <div class="provider-chip">CPA Academy</div>
+      <div class="provider-chip">Gleim CPE</div>
+      <div class="provider-chip">Checkpoint Learning</div>
+      <div class="provider-chip">State CPA Societies</div>
+      <div class="provider-chip">Firm In-House Training</div>
+      <div class="provider-chip">University Programs</div>
+      <div class="provider-chip">Live Webinars</div>
+      <div class="provider-chip">Self-Study Courses</div>
+      <div class="provider-chip">CPE Direct</div>
+      <div class="provider-chip">Any NASBA Sponsor</div>
+    </div>
+
+    <p style="margin-top:20px;font-size:0.88rem;color:#555;">If your state board accepts it as CPE, CPETrack can track it. The list above is illustrative — there are 1,000+ NASBA-registered CPE sponsors. No integration required: log any credit manually in under 30 seconds.</p>
+  </section>
+
+  <!-- State coverage section -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Full State CPE Coverage — All 51 Jurisdictions</h2>
+      <p>Every U.S. state plus Washington D.C. Each with its specific rules, deadlines, and quirks.</p>
+    </div>
+
+    <div class="state-coverage-note">
+      <strong>Why "any provider" matters state-by-state:</strong> Louisiana requires Board-approved ethics courses — generic NASBA ethics won't count. Florida has a similar restriction. Tennessee requires state-specific ethics. Wyoming only accepts 3 approved ethics providers. CPETrack flags these state-specific provider restrictions so you don't waste credits on unapproved courses.
+    </div>
+
+    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;">
+      <a href="https://cpe.paprika-labs.app/alabama-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Alabama</a><span style="display:inline-block;background:#f5f3ef;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#888;">Alaska</span><a href="https://cpe.paprika-labs.app/az-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Arizona</a><a href="https://cpe.paprika-labs.app/arkansas-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Arkansas</a><a href="https://cpe.paprika-labs.app/california-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">California</a><a href="https://cpe.paprika-labs.app/co-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Colorado</a><a href="https://cpe.paprika-labs.app/connecticut-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Connecticut</a><a href="https://cpe.paprika-labs.app/delaware-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Delaware</a><a href="https://cpe.paprika-labs.app/florida-cpa-cpe-requirements-june-30.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Florida</a><a href="https://cpe.paprika-labs.app/georgia-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Georgia</a><span style="display:inline-block;background:#f5f3ef;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#888;">Hawaii</span><a href="https://cpe.paprika-labs.app/idaho-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Idaho</a><a href="https://cpe.paprika-labs.app/illinois-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Illinois</a><a href="https://cpe.paprika-labs.app/indiana-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Indiana</a><a href="https://cpe.paprika-labs.app/iowa-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Iowa</a><a href="https://cpe.paprika-labs.app/kansas-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Kansas</a><a href="https://cpe.paprika-labs.app/kentucky-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Kentucky</a><a href="https://cpe.paprika-labs.app/louisiana-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Louisiana</a><a href="https://cpe.paprika-labs.app/maine-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Maine</a><a href="https://cpe.paprika-labs.app/maryland-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Maryland</a><a href="https://cpe.paprika-labs.app/massachusetts-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Massachusetts</a><a href="https://cpe.paprika-labs.app/michigan-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Michigan</a><a href="https://cpe.paprika-labs.app/minnesota-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Minnesota</a><a href="https://cpe.paprika-labs.app/mississippi-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Mississippi</a><a href="https://cpe.paprika-labs.app/mo-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Missouri</a><a href="https://cpe.paprika-labs.app/montana-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Montana</a><a href="https://cpe.paprika-labs.app/nebraska-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Nebraska</a><a href="https://cpe.paprika-labs.app/nevada-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Nevada</a><a href="https://cpe.paprika-labs.app/new-hampshire-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">New Hampshire</a><a href="https://cpe.paprika-labs.app/nj-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">New Jersey</a><a href="https://cpe.paprika-labs.app/new-mexico-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">New Mexico</a><a href="https://cpe.paprika-labs.app/ny-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">New York</a><a href="https://cpe.paprika-labs.app/nc-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">North Carolina</a><a href="https://cpe.paprika-labs.app/north-dakota-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">North Dakota</a><a href="https://cpe.paprika-labs.app/oh-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Ohio</a><a href="https://cpe.paprika-labs.app/oklahoma-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Oklahoma</a><a href="https://cpe.paprika-labs.app/oregon-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Oregon</a><a href="https://cpe.paprika-labs.app/pennsylvania-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Pennsylvania</a><a href="https://cpe.paprika-labs.app/rhode-island-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Rhode Island</a><a href="https://cpe.paprika-labs.app/sc-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">South Carolina</a><a href="https://cpe.paprika-labs.app/south-dakota-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">South Dakota</a><a href="https://cpe.paprika-labs.app/tn-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Tennessee</a><a href="https://cpe.paprika-labs.app/tx-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Texas</a><a href="https://cpe.paprika-labs.app/utah-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Utah</a><a href="https://cpe.paprika-labs.app/vermont-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Vermont</a><a href="https://cpe.paprika-labs.app/va-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Virginia</a><a href="https://cpe.paprika-labs.app/wa-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Washington</a><a href="https://cpe.paprika-labs.app/washington-dc-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Washington D.C.</a><a href="https://cpe.paprika-labs.app/west-virginia-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">West Virginia</a><a href="https://cpe.paprika-labs.app/wisconsin-cpa-cpe-requirements.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Wisconsin</a><a href="https://cpe.paprika-labs.app/wyoming-cpa-cpe-requirements-december-31.html" style="display:inline-block;background:#fff;border:1px solid #e0dbd4;border-radius:6px;padding:5px 12px;font-size:0.82rem;color:#333;">Wyoming</a>
+    </div>
+  </section>
+
+  <!-- FAQ section -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Frequently Asked Questions — Free CPE Tracking</h2>
+      <p>Everything CPAs ask about tracking CPE credits with any provider at no cost.</p>
+    </div>
+    <div class="faq-list">
+
+    <div class="faq-item">
+      <h3 class="faq-q">Is CPETrack really free?</h3>
+      <p class="faq-a">Yes. CPETrack is completely free — no subscription, no credit card, no premium tier. You can track all your CPE credits, set deadline alerts, and view your state's requirements at no cost. We plan to keep the core tracker free permanently.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Does CPETrack work with any CPE provider?</h3>
+      <p class="faq-a">Yes. CPETrack is provider-agnostic, meaning you can log credits from any approved CPE provider: NASBA sponsors, AICPA, state CPA society courses, Becker, Surgent, Illumeo, MyCPE, self-study, webinars, or in-house training. There is no restriction to specific providers.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">How do I track CPE credits from multiple providers?</h3>
+      <p class="faq-a">Log each CPE credit individually with the provider name, date, subject, and hours. CPETrack automatically totals your credits by category (A&A, ethics, technical, other) and compares them against your state's requirements. You can mix and match credits from any number of providers.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">What's the difference between CPETrack and a spreadsheet for CPE tracking?</h3>
+      <p class="faq-a">A spreadsheet requires manual math, manual deadline tracking, and manual research of state requirements. CPETrack automatically calculates your totals, alerts you when deadlines approach, and pre-loads your state's specific rules (ethics hours, A&A requirements, self-study caps, carryover limits). The main advantage: when your state's rules change, CPETrack updates automatically — your spreadsheet doesn't.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">How does CPETrack compare to MYCPE ONE's certificate vault?</h3>
+      <p class="faq-a">MYCPE ONE's certificate vault is a $199/year subscription designed primarily for CPAs who take courses through the MYCPE ONE platform. CPETrack is free and provider-agnostic — it works whether your CPE comes from MYCPE ONE, Becker, your state society, in-house training, or any other approved source. If you use multiple providers, CPETrack is the more practical choice.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Which states' CPE requirements does CPETrack cover?</h3>
+      <p class="faq-a">CPETrack covers all 50 U.S. states plus Washington D.C. — all 51 CPA licensing jurisdictions. This includes states with annual deadlines (e.g., New York, Louisiana), biennial deadlines (e.g., California, Texas), triennial periods (e.g., Ohio, New Jersey), and birth-month rolling deadlines (e.g., Texas, Oklahoma).</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Can I track ethics CPE separately?</h3>
+      <p class="faq-a">Yes. CPETrack tracks ethics credits separately from general CPE, which is essential because most states have minimum ethics hour requirements (typically 2-4 hours per cycle) and some require state-specific ethics courses (Florida, Tennessee, Wyoming, and others). The tracker flags whether you've met your state's ethics requirement.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Does CPETrack track A&A (Audit and Attest) CPE requirements?</h3>
+      <p class="faq-a">Yes. States like Alabama (8 hours, all CPAs), Georgia (16 hours, all CPAs), and Delaware (8 hours, all CPAs) require audit and attestation credits for all licensees. CPETrack tracks A&A credits separately and alerts you if you're an attest CPA in a state with an A&A minimum.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">How does CPETrack handle self-study caps?</h3>
+      <p class="faq-a">Some states cap self-study hours — for example, Virginia (50% cap), Arkansas (80% cap), or Vermont (80% combined self-study/online cap). CPETrack tracks your self-study hours separately and warns you when you're approaching your state's cap so you can plan live or group learning accordingly.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Can I carry over unused CPE hours to the next cycle?</h3>
+      <p class="faq-a">Carryover rules vary by state: Maryland allows up to 80 hours carried forward, New Hampshire allows 60 hours, and some states prohibit carryover entirely. CPETrack knows your state's carryover rules and accounts for carried-forward hours in your progress totals.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Do I need to create an account to use CPETrack?</h3>
+      <p class="faq-a">You can explore CPETrack's state requirement guides without an account. To save your CPE log and receive deadline reminders, a free account is required so your data persists between sessions.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Is CPETrack approved by NASBA or state CPA boards?</h3>
+      <p class="faq-a">CPETrack is a tracking tool, not a CPE provider, so it doesn't require NASBA approval. NASBA approval applies to providers who offer CPE courses. CPETrack simply helps you record and organize CPE credits from any NASBA-approved provider you choose.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">What happens if I miss my CPE deadline?</h3>
+      <p class="faq-a">Consequences vary by state but typically include late fees ($50-$500), license suspension, or reinstatement requirements. CPETrack sends deadline alerts well in advance so you have time to complete remaining hours. If you've already missed a deadline, some states allow grace periods — check your state's board website for reinstatement procedures.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-q">Can I use CPETrack if I'm licensed in multiple states?</h3>
+      <p class="faq-a">Yes. Many CPAs hold licenses in two or more states (common for border-state practices or firms with multi-state offices). CPETrack lets you set up tracking for multiple state requirements simultaneously and compares your credit totals against each state's rules independently.</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- CTA section -->
+  <div class="cta-section">
+    <h2>Start Tracking Your CPE for Free Today</h2>
+    <p>No credit card. No subscription. Works with every CPE provider and all 51 states.</p>
+    <a href="https://cpe.paprika-labs.app/#signup" class="btn-primary">Create Free Account →</a>
+  </div>
+
+  <!-- Related resources -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Related CPE Resources</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+      <a href="https://cpe.paprika-labs.app/cpe-tracker-comparison.html" style="background:#fff;border:1px solid #e8e4df;border-radius:8px;padding:14px 20px;font-size:0.88rem;color:#333;">CPE Tracker Comparison (All Tools)</a>
+      <a href="https://cpe.paprika-labs.app/comparison-tool.html" style="background:#fff;border:1px solid #e8e4df;border-radius:8px;padding:14px 20px;font-size:0.88rem;color:#333;">Compare CPE Requirements by State</a>
+      <a href="https://cpe.paprika-labs.app/calculator.html" style="background:#fff;border:1px solid #e8e4df;border-radius:8px;padding:14px 20px;font-size:0.88rem;color:#333;">CPE Hours Calculator</a>
+      <a href="https://cpe.paprika-labs.app/december-31-cpe-deadlines.html" style="background:#fff;border:1px solid #e8e4df;border-radius:8px;padding:14px 20px;font-size:0.88rem;color:#333;">December 31 CPE Deadline States</a>
+      <a href="https://cpe.paprika-labs.app/" style="background:#fff;border:1px solid #e8e4df;border-radius:8px;padding:14px 20px;font-size:0.88rem;color:#333;">All State CPE Guides →</a>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 CPETrack by Paprika Labs · <a href="https://cpe.paprika-labs.app/">cpe.paprika-labs.app</a> · <a href="https://cpe.paprika-labs.app/sitemap.xml">Sitemap</a></p>
+  <p style="margin-top:8px;">CPETrack is a tracking tool, not a CPE provider. Always verify requirements with your state board of accountancy.</p>
+</footer>
+
+</body>
+</html>
