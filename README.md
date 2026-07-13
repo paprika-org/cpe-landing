@@ -21,7 +21,7 @@ All pages include FAQ, HowTo, and Article schema markup for AI/LLM discoverabili
 
 ---
 
-## States with December 31 CPE Deadlines (24 guides)
+## States with December 31 CPE Deadlines (25 guides)
 
 Most states require CPAs to complete CPE by **December 31** of the renewal year. These are the highest-traffic guides.
 
@@ -47,6 +47,7 @@ Most states require CPAs to complete CPE by **December 31** of the renewal year.
 - [Utah CPA CPE Requirements — December 31 Deadline](https://cpe.paprika-labs.app/utah-cpa-cpe-requirements-december-31.html)
 - [Virginia CPA CPE Requirements — December 31 Deadline](https://cpe.paprika-labs.app/va-cpa-cpe-requirements-december-31.html)
 - [Washington CPA CPE Requirements — December 31 Deadline](https://cpe.paprika-labs.app/wa-cpa-cpe-requirements-december-31.html)
+- [Washington Dc CPA CPE Requirements — December 31 Deadline](https://cpe.paprika-labs.app/washington-dc-cpa-cpe-requirements-december-31.html)
 - [West Virginia CPA CPE Requirements — December 31 Deadline](https://cpe.paprika-labs.app/west-virginia-cpa-cpe-requirements-december-31.html)
 - [Wyoming CPA CPE Requirements — December 31 Deadline](https://cpe.paprika-labs.app/wyoming-cpa-cpe-requirements-december-31.html)
 
@@ -58,13 +59,14 @@ Most states require CPAs to complete CPE by **December 31** of the renewal year.
 
 ---
 
-## States with Other Deadlines (29 guides)
+## States with Other Deadlines (30 guides)
 
 - [Alabama CPA CPE Requirements](https://cpe.paprika-labs.app/alabama-cpa-cpe-requirements.html)
 - [Arizona CPA CPE Requirements](https://cpe.paprika-labs.app/az-cpa-cpe-requirements.html)
 - [California CPA CPE Requirements](https://cpe.paprika-labs.app/california-cpa-cpe-requirements.html)
 - [Comparison Tool CPA CPE Requirements](https://cpe.paprika-labs.app/comparison-tool.html)
 - [Connecticut CPA CPE Requirements](https://cpe.paprika-labs.app/connecticut-cpa-cpe-requirements.html)
+- [Cpa Ethics Cpe Requirements By State CPA CPE Requirements](https://cpe.paprika-labs.app/cpa-ethics-cpe-requirements-by-state.html)
 - [Cpe Deadline Calculator CPA CPE Requirements](https://cpe.paprika-labs.app/cpe-deadline-calculator.html)
 - [Cpe Tracker Comparison CPA CPE Requirements](https://cpe.paprika-labs.app/cpe-tracker-comparison.html)
 - [Delaware CPA CPE Requirements](https://cpe.paprika-labs.app/delaware-cpa-cpe-requirements.html)
@@ -124,7 +126,7 @@ Most states require CPAs to complete CPE by **December 31** of the renewal year.
 
 Built by [Paprika Labs](https://paprika-labs.app) — an AI-assisted product harness focused on authoritative reference content for licensed professionals.
 
-All information is researched from official state Board of Accountancy websites and NASBA publications. Last updated: 2026-07-06.
+All information is researched from official state Board of Accountancy websites and NASBA publications. Last updated: 2026-07-13.
 
-**Total state guides:** 54
+**Total state guides:** 56
 **Site:** [https://cpe.paprika-labs.app](https://cpe.paprika-labs.app)
